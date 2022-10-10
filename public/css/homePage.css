@@ -32,3 +32,18 @@
 .col a, .col-10 a {
   text-decoration: none;
 }
+
+@media screen and (min-width: 900px) {
+  .img-banner {
+    width: 700px;
+  }
+  .img-banner img{
+    object-fit: fill;
+    height: 100%;
+    width: 700px;
+  }
+
+  .container-sm {
+    width: 900px !important;
+  }
+}
