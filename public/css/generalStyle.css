@@ -1,12 +1,11 @@
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
 
-  background-image: url("/image/background.jpg");
+  background-image: url("/image/bg/bg.jpg");
   background-repeat: no-repeat;
-  background-attachment: fixed; 
+  background-attachment: fixed;
   background-size: cover;
-  background-position: center; 
+  background-position: center;
 }
-
-

@@ -1,7 +1,8 @@
 <?php
 
-use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ReparasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +16,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::get('/home', function() {
-    $products = Product::all();
-    return view('home',[
-        'products' => $products
-    ]);
-});
+Route::get('/home', [IndexController::class, 'visitLanding'])->name('landing');
+
+Route::get('/reparasi', [ReparasiController::class, 'visitReparasi'])->name('reparasi');
+Route::get('/reparasi/head', [ReparasiController::class, 'visitReparasiHead'])->name('reparasiHead');
+Route::get('/reparasi/neck', [ReparasiController::class, 'visitReparasiNeck'])->name('reparasiNeck');
+Route::get('/reparasi/body', [ReparasiController::class, 'visitReparasiBody'])->name('reparasiBody');

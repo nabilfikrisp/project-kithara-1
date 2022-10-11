@@ -1,10 +1,9 @@
-
 .img-banner {
   height: 25vh;
-  width: 90vw;
+  width: 50vw;
 }
 
-.img-banner img{
+.img-banner img {
   object-fit: fill;
   height: 100%;
   width: 100%;
@@ -24,12 +23,13 @@
   margin-top: 2px;
 }
 
-.action-section{
+.action-section {
   display: flex;
   justify-content: center;
 }
 
-.col a, .col-10 a {
+.col a,
+.col-10 a {
   text-decoration: none;
 }
 
@@ -37,7 +37,8 @@
   .img-banner {
     width: 700px;
   }
-  .img-banner img{
+
+  .img-banner img {
     object-fit: fill;
     height: 100%;
     width: 700px;
