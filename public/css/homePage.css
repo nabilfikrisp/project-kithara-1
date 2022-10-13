@@ -1,6 +1,10 @@
+.home-logo {
+  width: 50%;
+}
+
 .img-banner {
   height: 25vh;
-  width: 50vw;
+  width: 45vw;
 }
 
 .img-banner img {
@@ -35,13 +39,14 @@
 
 @media screen and (min-width: 900px) {
   .img-banner {
-    width: 700px;
+    width: 15vw;
+    height: 35vh;
   }
 
   .img-banner img {
     object-fit: fill;
     height: 100%;
-    width: 700px;
+    /* width: 700px; */
   }
 
   .container-sm {

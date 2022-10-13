@@ -7,8 +7,10 @@
 
 @section('content')
 <div class="container-sm d-flex flex-column justify-content-center align-items-center">
-    <div class="img-banner d-flex justify-content-center mt-5">
-        <img src="/image/logo/logo.png" alt="">
+    <div class="row w-100 align-items-center justify-content-center">
+        <div class="col-6 img-banner d-flex justify-content-center mt-5">
+            <img src="/image/logo/logo.png" alt="Logo Kitharra">
+        </div>
     </div>
     <div class="row row-cols-2 col-10 mt-5">
         <div class="col">
