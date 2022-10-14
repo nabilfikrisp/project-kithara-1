@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+
+    background-image: url("/image/bg/bg-blur.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.home-logo {
+    width: 50%;
+}
+
+.img-banner {
+    height: 25vh;
+    width: 45vw;
+}
+
+.img-banner img {
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+}
+
+.card-checkout {
+    width: 80%;
+}
+
+@media screen and (min-width: 900px) {
+    .img-banner {
+        width: 15vw;
+        height: 35vh;
+    }
+
+    .img-banner img {
+        object-fit: fill;
+        height: 100%;
+        /* width: 700px; */
+    }
+
+    .container-sm {
+        width: 900px !important;
+    }
+
+    .card-checkout {
+        width: fit-content;
+    }
+}

@@ -55,3 +55,17 @@ body {
 .guitar-part-body {
     width: 36vh;
 }
+
+.card-reparasi {
+    width: 80%;
+}
+
+.detail-reparasi-text {
+    font-size: 14px;
+}
+
+@media screen and (min-width: 900px) {
+    .card-reparasi {
+        width: 50%;
+    }
+}

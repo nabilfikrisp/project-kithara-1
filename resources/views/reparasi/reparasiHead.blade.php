@@ -8,26 +8,62 @@
 @section('jenis_reparasi_head')
 <p class="m-0">Jenis Reparasi {{ $item_head[0]->nama }} :</p>
 <div class="form-check mt-1">
-    <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1" value="option1">
-    <label class="form-check-label" for="exampleRadios1">
+    <input class="form-check-input" type="checkbox" name="exampleRadios" id="radio1" value="option1" onchange="showDetails1(this)">
+    <label class="form-check-label" for="radio1">
         Re-Finish {{ $item_head[0]->nama }}
     </label>
+    <div id="reparasi-{{ $item_head[0]->nama }}" hidden>
+        <table>
+            <tr>
+                <td class="detail-reparasi-text">Estimasi Pengerjaan</td>
+                <td class="detail-reparasi-text">: 14 hari</td>
+            </tr>
+            <tr>
+                <td class="detail-reparasi-text">Biaya</td>
+                <td class="detail-reparasi-text">: Rp. 50000</td>
+            </tr>
+        </table>
+    </div>
 </div>
 <div class="form-check mt-2">
-    <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios2" value="option2">
-    <label class="form-check-label" for="exampleRadios2" style="line-height:15px">
+    <input class="form-check-input" type="checkbox" name="exampleRadios" id="radio2" value="option2">
+    <label class="form-check-label" for="radio2" style="line-height:15px">
         Ubah Bentuk {{ $item_head[0]->nama }}<br><span style="font-size:12px;">*Include Re-Finish</span>
     </label>
+    <!-- <div id="reparasi-{{ $item_head[0]->nama }}" hidden>
+        <table>
+            <tr>
+                <td class="detail-reparasi-text">Estimasi Pengerjaan</td>
+                <td class="detail-reparasi-text">: 14 hari</td>
+            </tr>
+            <tr>
+                <td class="detail-reparasi-text">Biaya</td>
+                <td class="detail-reparasi-text">: Rp. 50000</td>
+            </tr>
+        </table>
+    </div> -->
 </div>
 @endsection
 
 @section('jenis_reparasi_tuning_machine')
 <p class="m-0">Jenis Reparasi {{ $item_tuning_machine[0]->nama }} :</p>
 <div class="form-check mt-1">
-    <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1" value="option1">
-    <label class="form-check-label" for="exampleRadios1">
+    <input class="form-check-input" type="checkbox" name="exampleRadios" id="radio3" value="option1" onchange="showDetails2(this)">
+    <label class="form-check-label" for="radio3">
         Re-Finish {{ $item_tuning_machine[0]->nama }}
     </label>
+    <div id="reparasi-{{ $item_tuning_machine[0]->nama }}" hidden>
+        <table>
+            <tr>
+                <td class="detail-reparasi-text">Estimasi Pengerjaan</td>
+                <td class="detail-reparasi-text">: 14 hari</td>
+            </tr>
+            <tr>
+                <td class="detail-reparasi-text">Biaya</td>
+                <td class="detail-reparasi-text">: Rp. 50000</td>
+            </tr>
+        </table>
+    </div>
 </div>
 <div class="form-check mt-2">
     <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios2" value="option2">
@@ -68,8 +104,8 @@
     </div>
     <div class="row align-items-center justify-content-center mt-3">
         <form>
-            <div class="col d-flex">
-                <div class="card w-100">
+            <div class="col d-flex justify-content-center">
+                <div class="card card-reparasi">
                     <div class="row p-2">
                         <div class="col">
                             @yield('jenis_reparasi_head')
@@ -81,9 +117,35 @@
                 </div>
             </div>
             <div class="row mt-3 justify-content-center">
-                <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="width:fit-content">Konfirmasi Pesanan</button>
+                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="width:fit-content">Konfirmasi Pesanan</button>
+                <a href="{{ route('checkout') }}" class="text-center">Next dlu</a>
             </div>
         </form>
     </div>
 </div>
+<script>
+    function showDetails1(checkboxTicked) {
+        if (checkboxTicked.checked) {
+            document
+                .getElementById("reparasi-{{ $item_head[0]->nama }}")
+                .removeAttribute("hidden");
+        } else {
+            document
+                .getElementById("reparasi-{{ $item_head[0]->nama }}")
+                .setAttribute('hidden', 'true')
+        }
+    }
+
+    function showDetails2(checkboxTicked) {
+        if (checkboxTicked.checked) {
+            document
+                .getElementById("reparasi-{{ $item_tuning_machine[0]->nama }}")
+                .removeAttribute("hidden");
+        } else {
+            document
+                .getElementById("reparasi-{{ $item_tuning_machine[0]->nama }}")
+                .setAttribute('hidden', 'true')
+        }
+    }
+</script>
 @endsection
