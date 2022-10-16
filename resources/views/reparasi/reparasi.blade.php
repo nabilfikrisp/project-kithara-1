@@ -9,7 +9,6 @@
 <main class="mt-3 mb-3">
     <div class="row">
         <h2 class="reparasi-head-text">Reparasi Gitar</h2>
-        <h2 class="reparasi-head-text">Tracking Reparasi</h2>
         <p class="reparasi-desc-text">Click on Guitar to see details</p>
     </div>
     <div class="container-fluid">

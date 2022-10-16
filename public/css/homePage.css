@@ -37,6 +37,11 @@
   text-decoration: none;
 }
 
+.pos-sticky {
+  position: sticky !important;
+  top: 0;
+}
+
 @media screen and (min-width: 900px) {
   .img-banner {
     width: 15vw;

@@ -11,7 +11,10 @@
         <a href="{{ route('landing') }}">Landing Page</a>
     </li>
     <li>
-        <a href="">Landing Page 2</a>
+        <a href="{{ route('login') }}">Login</a>
+    </li>
+    <li>
+        <a href="{{ route('cekResi') }}">Cek Resi</a>
     </li>
 </ul>
 @endsection

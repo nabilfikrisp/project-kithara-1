@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="{{ asset('/css/homePage.css') }}">
     <link href="{{ asset('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
     <title>Kithara</title>
+    <link rel="icon" href="/image/logo/logo.png" type="image">
     @yield('head')
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg bg-light pos-sticky">
         <div class="container-sm">
             <a class="navbar-brand" href="#">Kithara</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

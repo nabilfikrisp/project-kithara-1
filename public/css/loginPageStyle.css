@@ -1,0 +1,100 @@
+.formContainer {
+    padding: 24px;
+    width: 50%;
+    margin: 0 auto
+}
+
+.formContainer input {
+    height: 48px;
+    padding-left: 48px;
+    background: white;
+    opacity: 0.8;
+    border: none;
+    color: black;
+}
+
+.btn-accent:active {
+    box-shadow: 0px 0px 2px #D62822;
+}
+
+.formContainer input:focus {
+    box-shadow: 0px 0px 2px #D62822;
+    background: white;
+    opacity: 0.9;
+}
+
+.inputLogo {
+    position: absolute;
+    margin-top: 12px;
+    margin-left: 18px;
+    color: black
+}
+
+#mainBgn {
+    background-image: url("/image/bg/bg.jpg");
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-size: cover;
+    background-position: center;
+}
+
+.btn-accent {
+    background: rgb(214, 40, 34);
+    /* Old browsers */
+    background: -moz-linear-gradient(top, rgb(88, 59, 5) 0%, rgba(146, 98, 8) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgb(88, 59, 5) 0%, rgba(146, 98, 8) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgb(88, 59, 5) 0%, rgba(146, 98, 8) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d62822', endColorstr='#d8524c', GradientType=0);
+    /* IE6-9 */
+    height: 48px;
+    width: fit-content;
+    color: white;
+    border: none;
+}
+
+.btn-accent:hover {
+    background: rgb(216, 82, 76);
+    /* Old browsers */
+    background: -moz-linear-gradient(top, rgb(146, 98, 8) 0%, rgb(88, 59, 5) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(146, 98, 8) 0%, rgba(146, 98, 8) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(146, 98, 8) 0%, rgba(146, 98, 8) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d8524c', endColorstr='#d62822', GradientType=0);
+    /* IE6-9 */
+    color: white;
+}
+
+::placeholder {
+    color: black !important
+}
+
+.signup-text {
+    color: white;
+    font-size: 16px;
+}
+
+.signup-button {
+    color: black;
+    background-color: white;
+    padding: 0.4rem;
+    text-decoration: none;
+    border-radius: 15px;
+    opacity: 0.8;
+}
+
+.signup-button:hover {
+    transform: 0.5s ease-in;
+    color: black;
+    opacity: 1;
+}
+
+.login-text {
+    color: white;
+    width: fit-content;
+    padding: 0 2rem;
+}

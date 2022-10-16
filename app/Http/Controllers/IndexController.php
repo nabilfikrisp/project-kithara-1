@@ -14,4 +14,9 @@ class IndexController extends Controller
             'products' => $products,
         ]);
     }
+
+    public function visitCekResi()
+    {
+        return view('transaction.cekResi');
+    }
 }

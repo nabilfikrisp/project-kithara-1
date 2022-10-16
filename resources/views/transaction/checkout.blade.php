@@ -8,7 +8,7 @@
 @section('content')
 <div class="container-fluid mt-4 mb-4">
     <div class="row w-100 align-items-center justify-content-center">
-        <div class="col-6 img-banner d-flex justify-content-center mt-5">
+        <div class="col-6 img-banner d-flex justify-content-center mt-3">
             <img src="/image/logo/logo.png" alt="Logo Kitharra">
         </div>
     </div>

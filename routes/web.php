@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ReparasiController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [IndexController::class, 'visitLanding'])->name('landing');
+Route::get('/login', [LoginController::class, 'visitLogin'])->name('login');
+Route::get('/register', [LoginController::class, 'visitRegister'])->name('register');
 
 Route::get('/reparasi', [ReparasiController::class, 'visitReparasi'])->name('reparasi');
 Route::get('/reparasi/head', [ReparasiController::class, 'visitReparasiHead'])->name('reparasiHead');
@@ -28,3 +31,4 @@ Route::get('/reparasi/neck', [ReparasiController::class, 'visitReparasiNeck'])->
 Route::get('/reparasi/body', [ReparasiController::class, 'visitReparasiBody'])->name('reparasiBody');
 
 Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
+Route::get('/cek-resi', [IndexController::class, 'visitCekResi'])->name('cekResi');

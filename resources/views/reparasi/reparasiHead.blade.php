@@ -88,7 +88,7 @@
 @section('jenis_reparasi_nut')
 <p class="m-0">Jenis Reparasi Nut :</p>
 <div class="form-check mt-1">
-    <input class="form-check-input" type="radio" name="repNut" id="radio5" value="option1">
+    <input class="form-check-input" type="radio" name="repNut" id="radio5" value="option1" onchange="showDetails3(this)">
     <label class="form-check-label" for="radio5">
         Re-Finish Nut
     </label>
