@@ -35,7 +35,8 @@
                                 <input type="number" id="noHP" name="noHP">
                             </div>
                             <div class="row mt-3 justify-content-center">
-                                <button type="button" class="btn btn-primary" style="width:fit-content" onclick="return nextToOrder()">Next</button>
+                                <button type="button" class="btn btn-primary m-2" style="width:fit-content" onclick="window.history.back();">Back</button>
+                                <button type="button" class="btn btn-primary m-2" style="width:fit-content" onclick="return nextToOrder()">Next</button>
                             </div>
                         </div>
                         <div class="col mt-2 mb-2" id="order" hidden>
@@ -60,20 +61,24 @@
                         </div>
                         <div class="col mt-2 mb-2" id="payment" hidden>
                             <h4 class="text-center">Detil Pembayaran</h4>
-                            <div class="row mt-3 justify-content-center" style="margin-left:1rem;margin-right:1rem">
+                            <div class="row p-1 d-block" style="margin-left:1rem;margin-right:1rem">
                                 <label for="harga">harga</label>
                                 <input type="text" id="harga" name="harga" value="50000" disabled>
                             </div>
-                            <div class="row mt-3 justify-content-center" style="margin-left:1rem;margin-right:1rem">
-                                <label>Metode Pembayaran</label>
-                                <label><input type="radio" id="deliveryBy" name="deliveryBy" value="transfer" onclick="showRekening(this)">Bank Transfer</label>
-                                <p id="Rekening" style="display:none">Bank BCA 88888888 an Juancok</p>
-                                <label><input type="radio" id="deliveryBy" name="deliveryBy" value="cash" onclick="showCash(this)">Cash</label>
-                                <p id="Cash" style="display:none">Bayar sendiri ke toko anjeng</p>
+                            <div class="row p-1 d-block" style="margin-left:1rem;margin-right:1rem">
+                                <p class="m-0">Metode Pembayaran</p>
+                                <label><input type="radio" id="payment1" name="paymentMethod" value="transfer" onchange="showRekening(this)">Bank Transfer</label>
+                                <div id="Rekening" style="display:none">
+                                    <p>Bank BCA 88888888 an Juancok</p>
+                                </div>
+                                <label><input type="radio" id="payment2" name="paymentMethod" value="cash">Cash</label>
+                                <div id="Cash" style="display:none">
+                                    <p>Bayar sendiri ke toko anjeng</p>
+                                </div>
                             </div>
                             <div class="row mt-3 justify-content-center">
                                 <button type="button" class="btn btn-primary m-2" style="width:fit-content" onclick="return backToOrder()">Back</button>
-                                <button type="submit" class="btn btn-primary m-2" style="width:fit-content">Submit</button>
+                                <button type="submit" class="btn btn-primary m-2" style="width:fit-content" disabled>Submit</button>
                             </div>
                         </div>
                     </div>
@@ -140,18 +145,17 @@
 
     function showRekening(radioTicked) {
         if (radioTicked.checked) {
-            rekening.style.display = 'block'
+            rekening.style.display = 'block';
+            cash.style.display = 'none';
         } else {
-            rekening.style.display = 'none'
+            rekening.style.display = 'none';
+            cash.style.display = 'block';
         }
     }
 
-    function showCash(radioTicked) {
-        if (radioTicked.checked) {
-            cash.style.display = 'block'
-        } else {
-            cash.style.display = 'none'
-        }
-    }
+    const radioButtons1 = document.querySelectorAll('input[name="paymentMethod"]');
+    radioButtons1.forEach(radio => {
+        radio.addEventListener('click', showRekening);
+    });
 </script>
 @endsection
