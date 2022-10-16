@@ -18,6 +18,13 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->integer('no_hp');
+            $table->string('negara');
+            $table->string('provinsi');
+            $table->string('kecamatan');
+            $table->string('kelurahan');
+            $table->string('alamat');
+            $table->integer('kode_pos');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
