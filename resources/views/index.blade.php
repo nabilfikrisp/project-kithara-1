@@ -1,23 +1,26 @@
 @extends('layout')
 
 @section('head')
-<title>Index Bro</title>
+    <title>Index Bro</title>
 @endsection
 
 @section('content')
-<h1>TES INDEX</h1>
-@if (Auth::user())
-<p>Hi {{ Auth::user()->name }}, welcome back!</p>
-@endif
-<ul>
-    <li>
-        <a href="{{ route('landing') }}">Landing Page</a>
-    </li>
-    <li>
-        <a href="{{ route('login') }}">Login</a>
-    </li>
-    <li>
-        <a href="{{ route('cekResi') }}">Cek Resi</a>
-    </li>
-</ul>
+    <h1>TES INDEX</h1>
+    @if (Auth::user())
+        <p>Hi {{ Auth::user()->name }}, welcome back!</p>
+    @endif
+    <ul>
+        <li>
+            <a href="{{ route('landing') }}">Landing Page</a>
+        </li>
+        @guest
+            <li>
+                <a href="{{ route('login') }}">Login</a>
+            </li>
+        @endauth
+
+        <li>
+            <a href="{{ route('cekResi') }}">Cek Resi</a>
+        </li>
+    </ul>
 @endsection
