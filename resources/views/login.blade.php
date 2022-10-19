@@ -34,7 +34,8 @@
             <div class="text-center mb-4">
                 <h1 style="color:white">Login</h1>
             </div>
-            <form>
+            <form action="/login" method="POST">
+                @csrf
                 <div class="row d-flex justify-content-center">
                     <div class="col-6 justify-content-center">
                         <div>

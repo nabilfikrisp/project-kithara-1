@@ -6,6 +6,9 @@
 
 @section('content')
 <h1>TES INDEX</h1>
+@if (Auth::user())
+<p>Hi {{ Auth::user()->name }}, welcome back!</p>
+@endif
 <ul>
     <li>
         <a href="{{ route('landing') }}">Landing Page</a>
