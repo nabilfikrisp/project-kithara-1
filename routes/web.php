@@ -36,4 +36,6 @@ Route::get('/reparasi/neck', [ReparasiController::class, 'visitReparasiNeck'])->
 Route::get('/reparasi/body', [ReparasiController::class, 'visitReparasiBody'])->name('reparasiBody');
 
 Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
+Route::post('/checkout', [OrderController::class, 'handleOrder']);
+Route::post('/handle-checkout', [OrderController::class, 'handleCheckout']);
 Route::get('/cek-resi', [IndexController::class, 'visitCekResi'])->name('cekResi');

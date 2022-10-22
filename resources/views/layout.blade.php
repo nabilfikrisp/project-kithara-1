@@ -14,7 +14,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-light pos-sticky">
+    <nav class="navbar navbar-expand-lg bg-light pos-sticky" style="z-index: 9999">
         <div class="container-sm">
             <a class="navbar-brand" href="#">Kithara</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
