@@ -12,14 +12,14 @@ class RegisterController extends Controller
     {
         return view('register');
     }
-    
+
     public function store(Request $request)
-    {   
+    {
         // dd($request->negara);
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users',
-            'no_hp' => 'required|between:10,13|regex:/^081\d{7,9}$/',
+            'no_hp' => 'required|between:10,13|regex:/^08\d{8,10}$/',
             'negara' => 'required',
             'kota' => 'required',
             'kecamatan' => 'required',

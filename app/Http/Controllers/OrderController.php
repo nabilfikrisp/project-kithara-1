@@ -20,15 +20,14 @@ class OrderController extends Controller
     }
 
     public function handleOrder(Request $request)
-    {   
-        if(!isset($request->repHead) && !isset($request->repNut) && !isset($request->repTuningMachine))
-        {
+    {
+        if (!isset($request->repHead) && !isset($request->repNut) && !isset($request->repTuningMachine)) {
             return back()->with([
                 'error' => 'Mohon pilih salah satu pesanan'
             ]);
         }
 
-        $repHead = isset($request->repHead) ? $request->repHead : '';        
+        $repHead = isset($request->repHead) ? $request->repHead : '';
         $repNut = isset($request->repNut) ? $request->repNut : '';
         $repTuningMachine = isset($request->repTuningMachine) ? $request->repTuningMachine : '';
         $repBlabla = '';
@@ -40,12 +39,12 @@ class OrderController extends Controller
     }
 
     public function handleCheckout(Request $request)
-    {   
+    {
         $no_resi = UniqueIdGenerator::generate([
-            'table' => 'orders', 
+            'table' => 'orders',
             'field' => 'no_resi',
-            'length' => 12, 
-            'prefix' =>'KIT'
+            'length' => 7,
+            'prefix' => 'KIT'
         ]);
 
         // $request['no_resi'] = $no_resi;
@@ -54,8 +53,7 @@ class OrderController extends Controller
         // $request['service_id'] = $service->id;
         // dd($request, $no_resi, $service);
 
-        if($request['repHead'] != null)
-        {
+        if ($request['repHead'] != null) {
             $service = Service::where('service_name', $request['repHead'])->first();
             $service_id = $service->id;
             $order = Order::create([
@@ -71,8 +69,7 @@ class OrderController extends Controller
             ]);
         }
 
-        if($request['repNut'] != null)
-        {
+        if ($request['repNut'] != null) {
             $service = Service::where('service_name', $request['repNut'])->first();
             $service_id = $service->id;
             $order = Order::create([
@@ -88,8 +85,7 @@ class OrderController extends Controller
             ]);
         }
 
-        if($request['repTuningMachine'] != null)
-        {
+        if ($request['repTuningMachine'] != null) {
             $service = Service::where('service_name', $request['repTuningMachine'])->first();
             $service_id = $service->id;
             $order = Order::create([
