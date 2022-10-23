@@ -2,9 +2,25 @@
   width: 50%;
 }
 
+.nav-logo {
+  width: 10%;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.nav-text {
+  color: white !important;
+  font-size: 16px !important;
+}
+
+.nav-text:hover {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .img-banner {
-  height: 25vh;
-  width: 45vw;
+  height: 12rem;
+  width: 12rem;
 }
 
 .img-banner img {
@@ -40,6 +56,23 @@
 .pos-sticky {
   position: sticky !important;
   top: 0;
+}
+
+.btn-kithara {
+  padding: 0.5rem 5rem !important;
+  /* width: fit-content; */
+  white-space: nowrap;
+  font-size: 16px;
+  background-color: white !important;
+  color: black !important;
+  border-radius: 20px !important;
+  border: 1px solid black !important;
+  transition: 0.4s all !important;
+}
+
+.btn-kithara:hover {
+  background-color: rgb(88, 59, 5) !important;
+  color: white !important;
 }
 
 @media screen and (min-width: 900px) {

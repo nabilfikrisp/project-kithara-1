@@ -4,6 +4,7 @@ html {
   padding: 0;
 
   background-image: url("/image/bg/bg.jpg");
+  /* background-image: url("/image/bg/bg-blur.jpg"); */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
