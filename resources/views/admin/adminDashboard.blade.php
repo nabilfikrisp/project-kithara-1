@@ -15,7 +15,7 @@
                     <a href="{{ route('adminService') }}">Data Services</a>
                 </li>
                 <li>
-                    <a href="{{ route('adminOrder') }}">Data Orders</a>
+                    <a href="/admin/orders/">Data Orders</a>
                 </li>
             </ul>
         </div>

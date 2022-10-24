@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReparasiController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HandleOrderController;
 use App\Http\Controllers\ManageOrderController;
 
 /*
@@ -47,7 +48,8 @@ Route::get('/cek-resi', [IndexController::class, 'visitCekResi'])->name('cekResi
 Route::get('/admin', [AdminController::class, 'visitAdmin'])->name('admin')->middleware('auth');
 Route::get('/admin/user', [AdminController::class, 'visitUser'])->name('adminUser')->middleware('auth');
 Route::get('/admin/service', [AdminController::class, 'visitService'])->name('adminService')->middleware('auth');
-Route::get('/admin/order', [AdminController::class, 'visitOrder'])->name('adminOrder')->middleware('auth');
+// Route::get('/admin/order', [AdminController::class, 'visitOrder'])->name('adminOrder')->middleware('auth');
 
 // Route::get('/admin/order/edit', [ManageOrderController::class, 'index'])->name('adminEditOrder')->middleware('auth');
-Route::resource('/admin/order/edit/{order:slug}', ManageOrderController::class)->middleware('auth');
+
+Route::resource('/admin/orders', HandleOrderController::class)->middleware('auth');

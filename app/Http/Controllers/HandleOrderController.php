@@ -6,7 +6,7 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ManageOrderController extends Controller
+class HandleOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,14 +14,13 @@ class ManageOrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
         if (Auth::user()->is_admin == 0) {
             abort(403);
         }
-        return view('admin.adminEditOrder', [
-            'orders' => Order::where('id', auth()->user()->id)->first()
+        return view('admin.adminOrder', [
+            'orders' => Order::all()
         ]);
-        // return view('admin.adminEditOrder');
     }
 
     /**
@@ -52,10 +51,10 @@ class ManageOrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Order $order)
-    {
-        dd($order->buyers());
-        return view('admin.adminEditOrder', [
-            'orders' => $order
+    {   
+        // dd($order);
+        return view('admin.adminShowOrder', [
+            'order' => $order
         ]);
     }
 

@@ -126,7 +126,7 @@ class OrderController extends Controller
             ]);
         }
 
-        return redirect('/home')->with([
+        return redirect('/')->with([
             'success' => 'Order Behasil, Silahkan Tunggu Konfirmasi',
         ]);
     }

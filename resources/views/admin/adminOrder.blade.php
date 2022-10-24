@@ -65,67 +65,67 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data_user as $datum)
+                    @foreach ($orders as $order)
                     <tr class="align-middle">
-                        <th class="th-id" rowspan="4">{{ $datum->id }}</th>
+                        <th class="th-id" rowspan="4">{{ $order->id }}</th>
                         <td class="td-parent-cust">Nama</td>
-                        <td class="td-child-cust">{{ $datum->name }}</td>
+                        <td class="td-child-cust">{{ $order->buyers->name }}</td>
                         <td class="td-parent-order">Part</td>
-                        <td class="td-child-order">{{ $datum->part }}</td>
+                        <td class="td-child-order">{{ $order->services->part }}</td>
                         <td class="td-parent-order">Service</td>
-                        <td class="td-child-order">{{ $datum->service_name }}</td>
+                        <td class="td-child-order">{{ $order->services->service_name }}</td>
                         <td class="td-parent-pengerjaan">No Resi</td>
-                        <td class="td-child-pengerjaan">{{ $datum->no_resi }}</td>
+                        <td class="td-child-pengerjaan">{{ $order->no_resi }}</td>
                         <td class="text-center td-edit" rowspan="4">
-                            <a href="/admin/order/edit/{{ $datum->id }}">
-                                <button class="btn btn-warning" type="button">Edit</button>
+                            <a href="/admin/orders/{{ $order->id }}">
+                                <button class="btn btn-warning" type="button">Show</button>
                             </a>
                         </td>
                     </tr>
                     <tr>
                         <td class="td-parent-cust">Email</td>
-                        <td class="td-child-cust">{{ $datum->email }}</td>
+                        <td class="td-child-cust">{{ $order->buyers->email }}</td>
                         <td class="td-parent-order">Merk Gitar</td>
-                        <td class="td-child-order">{{ $datum->merk_gitar }}</td>
+                        <td class="td-child-order">{{ $order->merk_gitar }}</td>
                         <td class="td-parent-order">Tipe Gitar</td>
-                        <td class="td-child-order">{{ $datum->tipe_gitar }}</td>
+                        <td class="td-child-order">{{ $order->tipe_gitar }}</td>
                         <td class="td-parent-pengerjaan" rowspan="2">Status</td>
-                        <td class="td-child-pengerjaan" rowspan="2">{{ $datum->status }}</td>
+                        <td class="td-child-pengerjaan" rowspan="2">{{ $order->status }}</td>
                     </tr>
                     <tr class="align-middle">
                         <td class="td-parent-cust">No HP</td>
-                        <td class="td-child-cust">{{ $datum->no_hp }}</td>
+                        <td class="td-child-cust">{{ $order->buyers->no_hp }}</td>
                         <td class="td-parent-order">Delivery By</td>
-                        <td class="td-child-order">{{ $datum->delivery_by }}</td>
+                        <td class="td-child-order">{{ $order->delivery_by }}</td>
                         <td class="td-parent-order">Pickup By</td>
-                        <td class="td-child-order">{{ $datum->pickup_by }}</td>
+                        <td class="td-child-order">{{ $order->pickup_by }}</td>
                     </tr>
                     <tr class="align-middle">
                         <td class="td-parent-cust">Alamat</td>
                         <td class="td-child-cust">
-                            {{ $datum->alamat }},
-                            {{ $datum->kelurahan }},
-                            {{ $datum->kecamatan }},
-                            {{ $datum->kota }},
-                            {{ $datum->negara }}
-                            {{ $datum->kode_pos }}
+                            {{ $order->buyers->alamat }},
+                            {{ $order->buyers->kelurahan }},
+                            {{ $order->buyers->kecamatan }},
+                            {{ $order->buyers->kota }},
+                            {{ $order->buyers->negara }}
+                            {{ $order->buyers->kode_pos }}
                         </td>
                         <td class="td-parent-order">Pembayaran</td>
-                        <td class="td-child-order">{{ $datum->total_harga }} ({{ $datum->payment_type }})</td>
+                        <td class="td-child-order">{{ $order->total_harga }} ({{ $order->payment_type }})</td>
                         <td class="td-parent-order">Bukti Bayar</td>
                         <td class="td-child-order">
-                            @if($datum->payment_type == 'cash')
-                            @if($datum->bukti_bayar == null)
+                            @if($order->payment_type == 'cash')
+                            @if($order->bukti_bayar == null)
                             Belom Bayar
                             @else
                             <a href="">Bukti Bayar</a>
                             @endif
                             @else
-                            <a href="{{ $datum->bukti_bayar }}">Bukti Bayar</a>
+                            <a href="{{ asset('storage/' . $order->bukti_bayar) }}">Bukti Bayar</a>
                             @endif
                         </td>
                         <td class="td-parent-pengerjaan">Estimasi Waktu</td>
-                        <td class="td-child-pengerjaan">{{ $datum->estimasi_waktu }}</td>
+                        <td class="td-child-pengerjaan">{{ $order->estimasi_waktu }}</td>
                     </tr>
                     @endforeach
                 </tbody>
