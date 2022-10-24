@@ -40,6 +40,12 @@ class OrderController extends Controller
 
     public function handleCheckout(Request $request)
     {
+        // dd($request->file('buktiBayar')->getClientOriginalName());
+        if ($request['merkGitar'] == null || $request['tipeGitar'] == null || $request['deliveryBy'] == null || $request['pickupBy'] == null) {
+            return back()->with([
+                'error' => 'Mohon isi informasi order dengan lengkap'
+            ]);
+        }
         $no_resi = UniqueIdGenerator::generate([
             'table' => 'orders',
             'field' => 'no_resi',
@@ -56,6 +62,10 @@ class OrderController extends Controller
         if ($request['repHead'] != null) {
             $service = Service::where('service_name', $request['repHead'])->first();
             $service_id = $service->id;
+            $bukti_bayar = null;
+            if ($request->file('buktiBayar') !== null) {
+                $bukti_bayar = $request->file('buktiBayar')->store('bukti-bayar');
+            }
             $order = Order::create([
                 'status' => $request['status'],
                 'total_harga' => $request['harga'],
@@ -64,7 +74,9 @@ class OrderController extends Controller
                 'merk_gitar' => $request['merkGitar'],
                 'tipe_gitar' => $request['tipeGitar'],
                 'delivery_by' => $request['deliveryBy'],
+                'pickup_by' => $request['pickupBy'],
                 'payment_type' => $request['paymentMethod'],
+                'bukti_bayar' => $bukti_bayar,
                 'no_resi' => $no_resi
             ]);
         }
@@ -72,6 +84,10 @@ class OrderController extends Controller
         if ($request['repNut'] != null) {
             $service = Service::where('service_name', $request['repNut'])->first();
             $service_id = $service->id;
+            $bukti_bayar = null;
+            if ($request->file('buktiBayar') !== null) {
+                $bukti_bayar = $request->file('buktiBayar')->store('bukti-bayar');
+            }
             $order = Order::create([
                 'status' => $request['status'],
                 'total_harga' => $request['harga'],
@@ -80,14 +96,21 @@ class OrderController extends Controller
                 'merk_gitar' => $request['merkGitar'],
                 'tipe_gitar' => $request['tipeGitar'],
                 'delivery_by' => $request['deliveryBy'],
+                'pickup_by' => $request['pickupBy'],
                 'payment_type' => $request['paymentMethod'],
+                'bukti_bayar' => $bukti_bayar,
                 'no_resi' => $no_resi
             ]);
+            
         }
 
         if ($request['repTuningMachine'] != null) {
             $service = Service::where('service_name', $request['repTuningMachine'])->first();
             $service_id = $service->id;
+            $bukti_bayar = null;
+            if ($request->file('buktiBayar') !== null) {
+                $bukti_bayar = $request->file('buktiBayar')->store('bukti-bayar');
+            }
             $order = Order::create([
                 'status' => $request['status'],
                 'total_harga' => $request['harga'],
@@ -96,13 +119,15 @@ class OrderController extends Controller
                 'merk_gitar' => $request['merkGitar'],
                 'tipe_gitar' => $request['tipeGitar'],
                 'delivery_by' => $request['deliveryBy'],
+                'pickup_by' => $request['pickupBy'],
                 'payment_type' => $request['paymentMethod'],
+                'bukti_bayar' => $bukti_bayar,
                 'no_resi' => $no_resi
             ]);
         }
 
         return redirect('/home')->with([
-            'succes' => 'Order Behasil, Silahkan Tunggu Konfirmasi',
+            'success' => 'Order Behasil, Silahkan Tunggu Konfirmasi',
         ]);
     }
 }

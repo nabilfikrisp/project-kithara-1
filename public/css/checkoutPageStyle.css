@@ -28,6 +28,13 @@ body {
     width: 80%;
 }
 
+.own-alert {
+    position: absolute !important;
+    top: 15vh !important;
+    width: 30vw !important;
+    left: 35vw;
+}
+
 @media screen and (min-width: 900px) {
     .img-banner {
         width: 15vw;
