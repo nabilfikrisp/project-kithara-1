@@ -39,5 +39,9 @@ class LoginController extends Controller
 
         return redirect('/');
     }
-    
+
+    public function visitProfile()
+    {
+        return view('profile');
+    }
 }
