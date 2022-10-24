@@ -7,6 +7,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReparasiController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ManageOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,6 @@ Route::get('/admin', [AdminController::class, 'visitAdmin'])->name('admin')->mid
 Route::get('/admin/user', [AdminController::class, 'visitUser'])->name('adminUser')->middleware('auth');
 Route::get('/admin/service', [AdminController::class, 'visitService'])->name('adminService')->middleware('auth');
 Route::get('/admin/order', [AdminController::class, 'visitOrder'])->name('adminOrder')->middleware('auth');
+
+// Route::get('/admin/order/edit', [ManageOrderController::class, 'index'])->name('adminEditOrder')->middleware('auth');
+Route::resource('/admin/order/edit/{order:slug}', ManageOrderController::class)->middleware('auth');

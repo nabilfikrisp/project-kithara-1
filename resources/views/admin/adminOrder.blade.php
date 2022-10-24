@@ -77,7 +77,9 @@
                         <td class="td-parent-pengerjaan">No Resi</td>
                         <td class="td-child-pengerjaan">{{ $datum->no_resi }}</td>
                         <td class="text-center td-edit" rowspan="4">
-                            <button class="btn btn-warning" type="button">Edit</button>
+                            <a href="/admin/order/edit/{{ $datum->id }}">
+                                <button class="btn btn-warning" type="button">Edit</button>
+                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -112,7 +114,15 @@
                         <td class="td-child-order">{{ $datum->total_harga }} ({{ $datum->payment_type }})</td>
                         <td class="td-parent-order">Bukti Bayar</td>
                         <td class="td-child-order">
+                            @if($datum->payment_type == 'cash')
+                            @if($datum->bukti_bayar == null)
+                            Belom Bayar
+                            @else
                             <a href="">Bukti Bayar</a>
+                            @endif
+                            @else
+                            <a href="{{ $datum->bukti_bayar }}">Bukti Bayar</a>
+                            @endif
                         </td>
                         <td class="td-parent-pengerjaan">Estimasi Waktu</td>
                         <td class="td-child-pengerjaan">{{ $datum->estimasi_waktu }}</td>

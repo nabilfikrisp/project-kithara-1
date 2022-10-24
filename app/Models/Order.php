@@ -13,15 +13,23 @@ class Order extends Model
         'id'
     ];
 
-    public function order_details(){
+    public function order_details()
+    {
         return $this->hasMany(OrderDetail::class, 'order_id', 'id');
     }
 
-    public function services(){
-        return $this->belongsTo(Service::class, 'order_id', 'id');
+    public function services()
+    {
+        return $this->belongsTo(Service::class, 'service_id', 'id');
     }
 
-    public function buyers(){
+    public function buyers()
+    {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }
