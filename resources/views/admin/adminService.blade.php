@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid d-inline">
     <div class="row d-flex justify-content-center">
         <h3 class="text-center">Data Service</h3>
         <div class="col-10 d-flex justify-content-center mt-2">

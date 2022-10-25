@@ -17,11 +17,11 @@
             <table>
                 <tr>
                     <td class="detail-reparasi-text">Estimasi Pengerjaan</td>
-                    <td class="detail-reparasi-text">: 14 hari</td>
+                    <td class="detail-reparasi-text">: {{ $services[1]->estimasi_waktu }} hari</td>
                 </tr>
                 <tr>
                     <td class="detail-reparasi-text">Biaya</td>
-                    <td class="detail-reparasi-text">: Rp. 50000</td>
+                    <td class="detail-reparasi-text">: Rp. {{ $services[1]->biaya }}</td>
                 </tr>
             </table>
         </div>
@@ -35,11 +35,11 @@
             <table>
                 <tr>
                     <td class="detail-reparasi-text">Estimasi Pengerjaan</td>
-                    <td class="detail-reparasi-text">: 14 hari</td>
+                    <td class="detail-reparasi-text">: {{ $services[0]->estimasi_waktu }} hari</td>
                 </tr>
                 <tr>
                     <td class="detail-reparasi-text">Biaya</td>
-                    <td class="detail-reparasi-text">: Rp. 50000</td>
+                    <td class="detail-reparasi-text">: Rp. {{ $services[0]->biaya }}</td>
                 </tr>
             </table>
         </div>
@@ -58,11 +58,11 @@
             <table>
                 <tr>
                     <td class="detail-reparasi-text">Estimasi Pengerjaan</td>
-                    <td class="detail-reparasi-text">: 14 hari</td>
+                    <td class="detail-reparasi-text">: {{ $services[3]->estimasi_waktu }} hari</td>
                 </tr>
                 <tr>
                     <td class="detail-reparasi-text">Biaya</td>
-                    <td class="detail-reparasi-text">: Rp. 50000</td>
+                    <td class="detail-reparasi-text">: Rp. {{ $services[3]->biaya }}</td>
                 </tr>
             </table>
         </div>
@@ -76,11 +76,11 @@
             <table>
                 <tr>
                     <td class="detail-reparasi-text">Estimasi Pengerjaan</td>
-                    <td class="detail-reparasi-text">: 14 hari</td>
+                    <td class="detail-reparasi-text">: {{ $services[2]->estimasi_waktu }} hari</td>
                 </tr>
                 <tr>
                     <td class="detail-reparasi-text">Biaya</td>
-                    <td class="detail-reparasi-text">: Rp. 50000</td>
+                    <td class="detail-reparasi-text">: Rp. {{ $services[2]->biaya }}</td>
                 </tr>
             </table>
         </div>
@@ -99,11 +99,11 @@
             <table>
                 <tr>
                     <td class="detail-reparasi-text">Estimasi Pengerjaan</td>
-                    <td class="detail-reparasi-text">: 14 hari</td>
+                    <td class="detail-reparasi-text">: {{ $services[5]->estimasi_waktu }} hari</td>
                 </tr>
                 <tr>
                     <td class="detail-reparasi-text">Biaya</td>
-                    <td class="detail-reparasi-text">: Rp. 50000</td>
+                    <td class="detail-reparasi-text">: Rp. {{ $services[5]->biaya }}</td>
                 </tr>
             </table>
         </div>
@@ -117,11 +117,11 @@
             <table>
                 <tr>
                     <td class="detail-reparasi-text">Estimasi Pengerjaan</td>
-                    <td class="detail-reparasi-text">: 14 hari</td>
+                    <td class="detail-reparasi-text">: {{ $services[4]->estimasi_waktu }} hari</td>
                 </tr>
                 <tr>
                     <td class="detail-reparasi-text">Biaya</td>
-                    <td class="detail-reparasi-text">: Rp. 50000</td>
+                    <td class="detail-reparasi-text">: Rp. {{ $services[4]->biaya }}</td>
                 </tr>
             </table>
         </div>

@@ -1,60 +1,93 @@
 @extends('admin.adminLayout')
 
 @section('head')
-<style>
-    .td-edit {
-        background-color: silver !important;
-    }
+    <style>
+        .td-edit {
+            background-color: silver !important;
+        }
 
-    .th-id {
-        background-color: rgb(255, 255, 75) !important;
-    }
+        .th-id {
+            background-color: rgb(255, 255, 75) !important;
+        }
 
-    .td-parent-cust {
-        background-color: rgb(200, 50, 50) !important;
-        color: white !important;
-        font-weight: bold;
-        font-size: 15px;
-    }
+        .td-parent-cust {
+            background-color: rgb(200, 50, 50) !important;
+            color: white !important;
+            font-weight: bold;
+            font-size: 15px;
+        }
 
-    .td-child-cust {
-        /* background-color: rgb(200, 100, 100) !important; */
-        background-color: white;
-        font-size: 14px;
-    }
+        .td-child-cust {
+            /* background-color: rgb(200, 100, 100) !important; */
+            background-color: white;
+            font-size: 14px;
+        }
 
-    .td-parent-order {
-        background-color: rgb(50, 125, 200) !important;
-        color: white !important;
-        font-size: 15px;
-        font-weight: bold;
-    }
+        .td-parent-order {
+            background-color: rgb(50, 125, 200) !important;
+            color: white !important;
+            font-size: 15px;
+            font-weight: bold;
+        }
 
-    .td-child-order {
-        /* background-color: rgb(100, 150, 200) !important; */
-        background-color: white;
-    }
+        .td-child-order {
+            /* background-color: rgb(100, 150, 200) !important; */
+            background-color: white;
+        }
 
-    .td-parent-pengerjaan {
-        background-color: rgb(75, 200, 75) !important;
-        color: white !important;
-        font-size: 15px;
-        font-weight: bold;
-    }
+        .td-parent-pengerjaan {
+            background-color: rgb(75, 200, 75) !important;
+            color: white !important;
+            font-size: 15px;
+            font-weight: bold;
+        }
 
-    .td-child-pengerjaan {
-        /* background-color: rgb(125, 200, 125) !important; */
-        background-color: white;
-    }
-</style>
+        .td-child-pengerjaan {
+            /* background-color: rgb(125, 200, 125) !important; */
+            background-color: white;
+        }
+    </style>
 @endsection
 
 @section('content')
-<div class="container-fluid">
-    <div class="row d-flex justify-content-center">
-        <h3 class="text-center">Data Order</h3>
-        <div class="col-10 d-flex justify-content-center mt-2">
-            <table class="table table-bordered" style="border:black">
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+            <h3 class="text-center">Data Order</h3>
+            <div class="col-10 d-flex justify-content-center mt-2">
+                <div class="table-responsive" style="width: 70vw">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Customer</th>
+                                <th scope="col">Service</th>
+                                <th scope="col">Harga</th>
+                                <th scope="col">No Resi</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($orders as $order)
+                                <tr class="">
+                                    <td scope="row">{{ $loop->iteration }}</td>
+                                    <td>{{ $order->buyers->name }}</td>
+                                    <td>{{ $order->services->service_name }}</td>
+                                    <td>{{ $order->total_harga }}</td>
+                                    <td>{{ $order->no_resi }}</td>
+                                    <td>{{ $order->status }}</td>
+                                    <td>
+                                        <a href="/admin/orders/{{ $order->id }}">
+                                            <button class="btn btn-warning" type="button">Show</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                {{-- <table class="table table-bordered" style="border:black">
                 <thead class="table-dark">
                     <tr class="text-center">
                         <th style="color:rgb(255, 255, 75);">id</th>
@@ -114,8 +147,8 @@
                         <td class="td-child-order">{{ $order->total_harga }} ({{ $order->payment_type }})</td>
                         <td class="td-parent-order">Bukti Bayar</td>
                         <td class="td-child-order">
-                            @if($order->payment_type == 'cash')
-                            @if($order->bukti_bayar == null)
+                            @if ($order->payment_type == 'cash')
+                            @if ($order->bukti_bayar == null)
                             Belom Bayar
                             @else
                             <a href="">Bukti Bayar</a>
@@ -129,8 +162,8 @@
                     </tr>
                     @endforeach
                 </tbody>
-            </table>
+            </table> --}}
+            </div>
         </div>
     </div>
-</div>
 @endsection

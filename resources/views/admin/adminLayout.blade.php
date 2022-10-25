@@ -8,17 +8,52 @@
     <link href="{{ asset('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
     <title>Kithara</title>
     <link rel="icon" href="/image/logo/logo.png" type="image">
+    <link rel="stylesheet" href="{{ asset('/css/sidebars.css') }}">
     @yield('head')
 </head>
 
 <body>
-    @if(Auth::user())
-    <div class="mt-5 mb-4">
-        <h1 class="text-center">Admin Page</h1>
-        <h2 class="text-center">Hello, {{ Auth::user()->name }}</h2>
-    </div>
-    @yield('content')
+    @if (Auth::user())
+            <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark position-fixed "
+                style="width: 280px; height:100vh; position:sticky">
+                <a href="/"
+                    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32">
+                        <use xlink:href="#bootstrap" />
+                    </svg>
+                    <span class="fs-4">Hi, {{ Auth::user()->name }}!</span>
+                </a>
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link text-white">
+                            Landing Page
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('adminUser') }}" class="nav-link text-white">
+                            Data Users
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('adminService') }}" class="nav-link text-white">
+                            Data Services
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/orders/" class="nav-link text-white">
+                            Data Orders
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div style="padding-left: 15vw; padding-top:2vh">
+                @yield('content')
+            </div>
     @endif
+    <script src="{{ asset('/js/sidebars.js') }}"></script>
 </body>
 
 </html>

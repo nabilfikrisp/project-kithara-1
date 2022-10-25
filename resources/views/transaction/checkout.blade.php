@@ -85,7 +85,7 @@
                                 <h4 class="text-center">Detil Pembayaran</h4>
                                 <div class="row p-1 d-block" style="margin-left:1rem;margin-right:1rem">
                                     <label for="harga">harga</label>
-                                    <input type="text" id="harga" name="harga" value="50000">
+                                    <input type="text" id="harga" name="harga" value="{{ $biaya }}" readonly>
                                 </div>
                                 <div class="row p-1 d-block" style="margin-left:1rem;margin-right:1rem">
                                     <p class="m-0">Metode Pembayaran</p>
@@ -95,7 +95,8 @@
                                         <p>Bank BCA 88888888 an Bryan</p>
                                         <div class="mb-3">
                                             <label for="buktiBayar" class="form-label">Mohon Upload Bukti Bayar</label>
-                                            <input class="form-control" type="file" id="buktiBayar" name="buktiBayar">
+                                            <input class="form-control" type="file" id="buktiBayar"
+                                                name="buktiBayar">
                                         </div>
                                     </div>
                                     <label><input type="radio" id="payment2" name="paymentMethod"
@@ -108,6 +109,13 @@
                                 <input type="hidden" name="repNut" value="{{ session()->get('repNut') }}">
                                 <input type="hidden" name="repTuningMachine"
                                     value="{{ session()->get('repTuningMachine') }}">
+                                <input type="hidden" name="repNeck" value="{{ session()->get('repNeck') }}">
+                                <input type="hidden" name="repFret" value="{{ session()->get('repFret') }}">
+                                <input type="hidden" name="repPickup" value="{{ session()->get('repPickup') }}">
+                                <input type="hidden" name="repBody" value="{{ session()->get('repBody') }}">
+                                <input type="hidden" name="repSaddle" value="{{ session()->get('repSaddle') }}">
+                                <input type="hidden" name="repBridge" value="{{ session()->get('repBridge') }}">
+                                <input type="hidden" name="repPin" value="{{ session()->get('repPin') }}">
                                 <div class="row mt-3 justify-content-center">
                                     <button type="button" class="btn btn-primary m-2" style="width:fit-content"
                                         onclick="return backToOrder()">Back</button>

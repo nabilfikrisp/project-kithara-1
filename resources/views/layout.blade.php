@@ -44,7 +44,7 @@
                     @if (Auth::user())
                     @if (Auth::user()->is_admin == 1)
                     <li class="nav-item">
-                        <a class="nav-link nav-text" aria-current="page" href="{{ route('admin') }}">Admin</a>
+                        <a class="nav-link nav-text" aria-current="page" href="/admin/orders/">Admin</a>
                     </li>
                     @endif
                     <li class="nav-item">

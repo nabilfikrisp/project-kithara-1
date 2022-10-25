@@ -4,11 +4,10 @@
     <title>Reparasi Gitar - Head</title>
     <link rel="stylesheet" href="{{ asset('/css/reparasiPageStyle.css') }}">
 @endsection
-
 @section('jenis_reparasi_neck')
     <p class="m-0">Jenis Reparasi Neck :</p>
     <div class="form-check mt-1">
-        <input class="form-check-input" type="radio" name="repNeck" id="radio1" value="option1"
+        <input class="form-check-input" type="radio" name="repNeck" id="radio1" value="refinish_neck"
             onchange="showDetails1(this)">
         <label class="form-check-label" for="radio1">
             Re-Finish Neck
@@ -17,17 +16,17 @@
             <table>
                 <tr>
                     <td class="detail-reparasi-text">Estimasi Pengerjaan</td>
-                    <td class="detail-reparasi-text">: 14 hari</td>
+                    <td class="detail-reparasi-text">: {{ $services[1]->estimasi_waktu }} hari</td>
                 </tr>
                 <tr>
                     <td class="detail-reparasi-text">Biaya</td>
-                    <td class="detail-reparasi-text">: Rp. 50000</td>
+                    <td class="detail-reparasi-text">: Rp. {{ $services[1]->biaya }}</td>
                 </tr>
             </table>
         </div>
     </div>
     <div class="form-check mt-2">
-        <input class="form-check-input" type="radio" name="repNeck" id="radio2" value="option2">
+        <input class="form-check-input" type="radio" name="repNeck" id="radio2" value="ubah_neck">
         <label class="form-check-label" for="radio2" style="line-height:15px">
             Ubah Bentuk Neck<br><span style="font-size:12px;">*Include Re-Finish</span>
         </label>
@@ -35,11 +34,11 @@
             <table>
                 <tr>
                     <td class="detail-reparasi-text">Estimasi Pengerjaan</td>
-                    <td class="detail-reparasi-text">: 14 hari</td>
+                    <td class="detail-reparasi-text">: {{ $services[0]->estimasi_waktu }} hari</td>
                 </tr>
                 <tr>
                     <td class="detail-reparasi-text">Biaya</td>
-                    <td class="detail-reparasi-text">: Rp. 50000</td>
+                    <td class="detail-reparasi-text">: Rp. {{ $services[0]->biaya }}</td>
                 </tr>
             </table>
         </div>
@@ -49,7 +48,7 @@
 @section('jenis_reparasi_fret')
     <p class="m-0">Jenis Reparasi Fret :</p>
     <div class="form-check mt-1">
-        <input class="form-check-input" type="radio" name="repFret" id="radio3" value="option1"
+        <input class="form-check-input" type="radio" name="repFret" id="radio3" value="refinish_fret"
             onchange="showDetails2(this)">
         <label class="form-check-label" for="radio3">
             Re-Finish Fret
@@ -58,17 +57,17 @@
             <table>
                 <tr>
                     <td class="detail-reparasi-text">Estimasi Pengerjaan</td>
-                    <td class="detail-reparasi-text">: 14 hari</td>
+                    <td class="detail-reparasi-text">: {{ $services[3]->estimasi_waktu }} hari</td>
                 </tr>
                 <tr>
                     <td class="detail-reparasi-text">Biaya</td>
-                    <td class="detail-reparasi-text">: Rp. 50000</td>
+                    <td class="detail-reparasi-text">: Rp. {{ $services[3]->biaya }}</td>
                 </tr>
             </table>
         </div>
     </div>
     <div class="form-check mt-2">
-        <input class="form-check-input" type="radio" name="repFret" id="radio4" value="option2">
+        <input class="form-check-input" type="radio" name="repFret" id="radio4" value="ubah_fret">
         <label class="form-check-label" for="radio4" style="line-height:15px">
             Ubah Bentuk Fret<br><span style="font-size:12px;">*Include Re-Finish</span>
         </label>
@@ -76,11 +75,11 @@
             <table>
                 <tr>
                     <td class="detail-reparasi-text">Estimasi Pengerjaan</td>
-                    <td class="detail-reparasi-text">: 14 hari</td>
+                    <td class="detail-reparasi-text">: {{ $services[2]->estimasi_waktu }} hari</td>
                 </tr>
                 <tr>
                     <td class="detail-reparasi-text">Biaya</td>
-                    <td class="detail-reparasi-text">: Rp. 50000</td>
+                    <td class="detail-reparasi-text">: Rp. {{ $services[2]->biaya }}</td>
                 </tr>
             </table>
         </div>
@@ -90,7 +89,7 @@
 @section('jenis_reparasi_pickup')
     <p class="m-0">Jenis Reparasi Pickup :</p>
     <div class="form-check mt-1">
-        <input class="form-check-input" type="radio" name="repPickup" id="radio5" value="option1"
+        <input class="form-check-input" type="radio" name="repPickup" id="radio5" value="refinish_pickup"
             onchange="showDetails3(this)">
         <label class="form-check-label" for="radio5">
             Re-Finish Pickup
@@ -99,17 +98,17 @@
             <table>
                 <tr>
                     <td class="detail-reparasi-text">Estimasi Pengerjaan</td>
-                    <td class="detail-reparasi-text">: 14 hari</td>
+                    <td class="detail-reparasi-text">: {{ $services[5]->estimasi_waktu }} hari</td>
                 </tr>
                 <tr>
                     <td class="detail-reparasi-text">Biaya</td>
-                    <td class="detail-reparasi-text">: Rp. 50000</td>
+                    <td class="detail-reparasi-text">: Rp. {{ $services[5]->biaya }}</td>
                 </tr>
             </table>
         </div>
     </div>
     <div class="form-check mt-2">
-        <input class="form-check-input" type="radio" name="repPickup" id="radio6" value="option2">
+        <input class="form-check-input" type="radio" name="repPickup" id="radio6" value="ubah_pickup">
         <label class="form-check-label" for="radio6" style="line-height:15px">
             Ubah Bentuk Pickup<br><span style="font-size:12px;">*Include Re-Finish</span>
         </label>
@@ -117,11 +116,11 @@
             <table>
                 <tr>
                     <td class="detail-reparasi-text">Estimasi Pengerjaan</td>
-                    <td class="detail-reparasi-text">: 14 hari</td>
+                    <td class="detail-reparasi-text">: {{ $services[4]->estimasi_waktu }} hari</td>
                 </tr>
                 <tr>
                     <td class="detail-reparasi-text">Biaya</td>
-                    <td class="detail-reparasi-text">: Rp. 50000</td>
+                    <td class="detail-reparasi-text">: Rp. {{ $services[4]->biaya }}</td>
                 </tr>
             </table>
         </div>
@@ -130,6 +129,14 @@
 
 @section('content')
     <div class="container-fluid mt-4 mb-4">
+        @if (session()->has('error'))
+            <div class="container col-6">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        @endif
         <div class="row align-items-center justify-content-center">
             <h1 class="text-center" style="color:white">Reparasi Gitar</h1>
         </div>
@@ -142,7 +149,8 @@
             </div>
         </div>
         <div class="row align-items-center justify-content-center mt-3">
-            <form>
+            <form action="/checkout-neck" method="POST">
+                @csrf
                 <div class="col d-flex justify-content-center">
                     <div class="card card-reparasi">
                         <div class="row p-3">
@@ -159,9 +167,9 @@
                     </div>
                 </div>
                 <div class="row mt-3 justify-content-center">
-                    <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false"
-                        autocomplete="off" style="width:fit-content" disabled>Konfirmasi Pesanan</button>
-                    <a href="{{ route('checkout') }}" class="text-center">Next dlu</a>
+                    <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false"
+                        autocomplete="off" style="width:fit-content">Konfirmasi Pesanan</button>
+                    {{-- <a href="{{ route('checkout') }}" class="text-center">Next dlu</a> --}}
                 </div>
             </form>
         </div>
