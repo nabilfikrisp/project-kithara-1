@@ -6,10 +6,20 @@
 @section('content')
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
+            @if (session()->has('success'))
+                <div class="container col-6">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            @endif
             <h3 class="text-center">Edit Data Order [id = {{ $order->id }}]</h3>
             <div class="col d-flex justify-content-center">
                 <div class="card w-75 mt-3 mb-3" style="border:1px solid black">
-                    <form>
+                    <form action="{{ $order->id }}" method="post">
+                        @method('put')
+                        @csrf
                         <div class="row d-flex justify-content-center mt-4 mb-4">
                             <div class="col-4 justify-content-center m-0">
                                 <h4 class="text-center">Info Customer</h4>
@@ -96,8 +106,8 @@
                                         disabled>
                                 </div>
                                 <div class="row p-1" style="margin-left:1rem;margin-right:1rem; width:80%">
-                                    <label for="status">Status</label>
-                                    <select id="status" name="status">
+                                    <label for="status" style="font-weight: ">Status</label>
+                                    <select id="status" name="status" class="form-select">
                                         <option value="Menunggu Konfirmasi Bukti Bayar"
                                             @if ($order->status == 'Menunggu Konfirmasi Bukti Bayar') selected @endif>Menunggu Konfirmasi Bukti
                                             Bayar</option>

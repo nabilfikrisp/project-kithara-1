@@ -48,6 +48,7 @@ Route::get('/checkout-body', [OrderController::class, 'checkoutBody']);
 Route::post('/checkout-body', [OrderController::class, 'handleOrderBody'])->name('checkout-body');
 Route::post('/handle-checkout', [OrderController::class, 'handleCheckout']);
 Route::get('/cek-resi', [IndexController::class, 'visitCekResi'])->name('cekResi');
+Route::post('/cek-resi', [IndexController::class, 'handleCekResi']);
 
 Route::get('/admin', [AdminController::class, 'visitAdmin'])->name('admin')->middleware('auth');
 Route::get('/admin/user', [AdminController::class, 'visitUser'])->name('adminUser')->middleware('auth');

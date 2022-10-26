@@ -14,7 +14,7 @@ class HandleOrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         if (Auth::user()->is_admin == 0) {
             abort(403);
         }
@@ -51,7 +51,7 @@ class HandleOrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Order $order)
-    {   
+    {
         // dd($order);
         return view('admin.adminShowOrder', [
             'order' => $order
@@ -78,8 +78,15 @@ class HandleOrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        // dd($request, $order);
+        $data['status'] = $request['status'];
+        Order::where('id', $order->id)->update($data);
+        
+        return redirect('/admin/orders/' . $order->id)->with([
+            'success' => 'order berhasil diupdate'
+        ]);
     }
+
 
     /**
      * Remove the specified resource from storage.

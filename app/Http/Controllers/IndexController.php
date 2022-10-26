@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Order;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
@@ -18,5 +19,13 @@ class IndexController extends Controller
     public function visitCekResi()
     {
         return view('transaction.cekResi');
+    }
+
+    public function handleCekResi(Request $request){
+        $orders = Order::where('no_resi', $request['no_resi'])->get();
+        
+        return view('transaction.hasilCekResi', [
+            'orders' => $orders
+        ]);
     }
 }

@@ -16,11 +16,12 @@
             <div class="text-center mb-4">
                 <h1 style="color:white">Cek Resi</h1>
             </div>
-            <form>
+            <form action="/cek-resi" method="POST">
+                @csrf
                 <div class="row d-flex justify-content-center">
                     <div class="col-6 justify-content-center">
                         <div class="my-2">
-                            <span class="inputLogo"><i class="fas fa-key"></i></span><input type="text" class="form-control rounded-pill" name="resi" placeholder="Insert Your Nomor Resi">
+                            <span class="inputLogo"><i class="fas fa-key"></i></span><input type="text" class="form-control rounded-pill" name="no_resi" placeholder="Insert Your Nomor Resi">
                         </div>
                         <button class="btn btn-accent rounded-pill w-100" type="submit"><span class="login-text">Cek Resi</span></button>
                     </div>
