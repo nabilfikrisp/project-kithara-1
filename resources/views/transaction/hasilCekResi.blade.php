@@ -1,30 +1,79 @@
 @extends('layout')
 
 @section('head')
-    <title>Cek Resi</title>
-    <link rel="stylesheet" href="{{ asset('/css/loginPageStyle.css') }}">
+<title>Cek Resi</title>
+<link rel="stylesheet" href="{{ asset('/css/loginPageStyle.css') }}">
+<link rel="stylesheet" href="{{ asset('/css/cekResiPageStyle.css') }}">
 @endsection
 
 @section('content')
 
-    <body>
-        <div class="vh-100 w-100 d-flex align-items-center justify-content-center" id="mainBgn">
-            <table class="table table-striped table-bordered table-primary" style="width: 60vw">
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">No Resi</th>
-                    <th scope="col">Service</th>
-                    <th scope="col">Status</th>
-                </tr>
-                @foreach ($orders as $order)
-                <tr>
-                  <td scope="row">{{  $loop->iteration }}</td>
-                  <td>{{ $order->no_resi }}</td>
-                  <td>{{ $order->services->service_name }}</td>
-                  <td>{{ $order->status }}</td>
-                </tr>
-                @endforeach
-            </table>
+<body>
+    <div class="w-100 d-flex align-items-center" id="mainBgn">
+        <div class="formContainer mt-2 mb-5">
+            <div class="text-center mb-2">
+                <img src="/image/logo/logo.png" alt="Logo Kitharra" style="width:12rem">
+            </div>
+            <!-- <div class="text-center mb-4">
+                <h1 style="color:white">Cek Resi : {{ $orders[0]->no_resi }}</h1>
+            </div> -->
+            <div class="row d-flex justify-content-center">
+                <div class="col justify-content-center" align="center">
+                    <div class="card text-start card-resi w-50 mt-2 mb-2 p-2">
+                        <h6 class="card-head-resi">Nomor Resi : {{ $orders[0]->no_resi }}</h6>
+                        <p class="card-head-text">Info Customer</p>
+                        <table>
+                            <tr>
+                                <td class="card-desc-text">Nama</td>
+                                <td class="card-desc-text">: {{ $orders[0]->buyers->name }}</td>
+                            </tr>
+                            <tr>
+                                <td class="card-desc-text">Email</td>
+                                <td class="card-desc-text">: {{ $orders[0]->buyers->email }}</td>
+                            </tr>
+                            <tr>
+                                <td class="card-desc-text">Nomor HP</td>
+                                <td class="card-desc-text">: {{ $orders[0]->buyers->no_hp }}</td>
+                            </tr>
+                            <tr>
+                                <td class="card-desc-text">Tanggal Order</td>
+                                <td class="card-desc-text">: {{ $orders[0]->created_at }}</td>
+                            </tr>
+                            <tr>
+                                <td class="card-desc-text">Merek Gitar</td>
+                                <td class="card-desc-text">: {{ $orders[0]->merk_gitar }}</td>
+                            </tr>
+                            <tr>
+                                <td class="card-desc-text">Tipe Gitar</td>
+                                <td class="card-desc-text">: {{ $orders[0]->tipe_gitar }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="card text-start card-resi w-50 mt-2 mb-2 p-2">
+                        <p class="card-head-text">Jenis Reparasi</p>
+                        <ul>
+                            @foreach ($orders as $order)
+                            <li>
+                                <p class="card-desc-text">{{ $order->services->service_name }}</p>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="card text-start card-resi w-50 mt-2 mb-2 p-2">
+                        <p class="card-head-text">Progress Reparasi</p>
+                        <ul>
+                            @foreach ($orders as $order)
+                            <li>
+                                <p class="card-desc-text">{{ $order->services->service_name }}</p>
+                                <p class="card-desc-text"><span style="font-weight:bold">{{ $order->updated_at }}</span> : {{ $order->status}}</p>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn-primary mt-2" onclick="window.history.back();">Back</button>
+                </div>
+            </div>
         </div>
-    </body>
+    </div>
+</body>
 @endsection

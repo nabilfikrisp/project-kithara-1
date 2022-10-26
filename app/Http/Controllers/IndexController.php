@@ -21,9 +21,15 @@ class IndexController extends Controller
         return view('transaction.cekResi');
     }
 
-    public function handleCekResi(Request $request){
+    public function handleCekResi(Request $request)
+    {
         $orders = Order::where('no_resi', $request['no_resi'])->get();
-        
+
+        // dd($request->request->get('no_resi'));
+        // if ($request->request->get('no_resi') != $orders->no_resi) {
+        //     abort(403);
+        // }
+
         return view('transaction.hasilCekResi', [
             'orders' => $orders
         ]);

@@ -1,0 +1,21 @@
+.card-resi {
+    background-color: #7e7e7e7f;
+}
+
+.card-head-resi {
+    font-size: 18px;
+    color: white;
+}
+
+.card-head-text {
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    margin: 0;
+}
+
+.card-desc-text {
+    font-size: 14px;
+    color: white;
+    margin: 0;
+}
