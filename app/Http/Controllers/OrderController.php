@@ -406,9 +406,9 @@ class OrderController extends Controller
             'status' => 'Menunggu Konfirmasi Bukti Bayar',
             'no_resi' => $no_resi
         ]);
-
-        return redirect('/')->with([
-            'success' => 'Order Behasil, Silahkan Tunggu Konfirmasi',
+        $orders = Order::where('no_resi', $no_resi)->get();
+        return view('transaction.orderBerhasil',[
+            'orders' => $orders
         ]);
     }
 }
