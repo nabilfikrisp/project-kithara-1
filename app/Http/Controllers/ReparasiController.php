@@ -14,12 +14,12 @@ class ReparasiController extends Controller
     }
 
     public function visitReparasiHead()
-    {   
+    {
         // $ubah_head = Service::where('service_name', 'ubah_head')->first();
         // dd($ubah_head->service_name);
         $services = Service::where('part', 'head')->get();
         return view('reparasi.reparasiHead', [
-          'services' => $services
+            'services' => $services
         ]);
     }
 
@@ -35,6 +35,14 @@ class ReparasiController extends Controller
     {
         $services = Service::where('part', 'body')->get();
         return view('reparasi.reparasiBody', [
+            'services' => $services
+        ]);
+    }
+
+    public function visitReparasiAll()
+    {
+        $services = Service::all();
+        return view('reparasi.reparasiAll', [
             'services' => $services
         ]);
     }

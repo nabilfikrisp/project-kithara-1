@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <div class="row display-table">
             <div class="col-9 same-height" align="center">
-                <a href="{{ route('reparasiHead') }}">
+                <a href="{{ route('reparasiAll') }}">
                     <img class="guitar-part-head" src="{{ asset('image/guitar/head.png') }}">
                 </a>
             </div>
@@ -32,7 +32,7 @@
         </div>
         <div class="row align-items-center justify-content-center display-table">
             <div class="col-9 same-height" align="center">
-                <a href="{{ route('reparasiNeck') }}">
+                <a href="{{ route('reparasiAll') }}">
                     <img class="guitar-part-neck" src="{{ asset('image/guitar/neck.png') }}">
                 </a>
             </div>
@@ -50,7 +50,7 @@
         </div>
         <div class="row align-items-center justify-content-center display-table">
             <div class="col-9 same-height" align="center">
-                <a href="{{ route('reparasiBody') }}">
+                <a href="{{ route('reparasiAll') }}">
                     <img class="guitar-part-body" src="{{ asset('image/guitar/body.png') }}">
                 </a>
             </div>
