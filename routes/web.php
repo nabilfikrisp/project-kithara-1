@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\IndexController;
@@ -53,6 +54,14 @@ Route::post('/cek-resi', [IndexController::class, 'handleCekResi']);
 Route::get('/admin', [AdminController::class, 'visitAdmin'])->name('admin')->middleware('auth');
 Route::get('/admin/user', [AdminController::class, 'visitUser'])->name('adminUser')->middleware('auth');
 Route::get('/admin/service', [AdminController::class, 'visitService'])->name('adminService')->middleware('auth');
+// Route::get('/admin/service/{id}', [AdminController::class, 'showService'])->middleware('auth');
+Route::get('/admin/service/{id}', function ($id){
+  $service = Service::where('id', $id)->first();
+  return view('admin.adminShowService',[
+    'service' => $service
+  ]);
+})->middleware('auth');
+Route::post('/admin/service/update', [AdminController::class, 'updateService'])->middleware('auth');
 // Route::get('/admin/order', [AdminController::class, 'visitOrder'])->name('adminOrder')->middleware('auth');
 
 // Route::get('/admin/order/edit', [ManageOrderController::class, 'index'])->name('adminEditOrder')->middleware('auth');

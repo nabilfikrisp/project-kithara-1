@@ -42,6 +42,19 @@ class AdminController extends Controller
         ]);
     }
 
+    public function updateService(Request $request){
+        $data = [
+            'estimasi_waktu' => $request['estimasi_waktu'],
+            'biaya' => $request['harga']
+        ];
+        // dd($data, $request['serviceID']);
+        $service = Service::where('id', $request['serviceID'])->update($data);
+
+        return redirect('/admin/service/' . $request['serviceID'])->with([
+            'success' => 'service berhasil diupdate'
+        ]);
+    }
+
     public function visitOrder()
     {
         if (Auth::user()->is_admin == 0) {
