@@ -35,15 +35,15 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/profile', [LoginController::class, 'visitProfile'])->name('profile');
 
-Route::get('/reparasi', [ReparasiController::class, 'visitReparasi'])->name('reparasi')->middleware('auth');
+Route::get('/reparasi', [ReparasiController::class, 'visitReparasi'])->name('reparasi');
 Route::get('/reparasi/head', [ReparasiController::class, 'visitReparasiHead'])->name('reparasiHead');
 Route::get('/reparasi/neck', [ReparasiController::class, 'visitReparasiNeck'])->name('reparasiNeck');
 Route::get('/reparasi/body', [ReparasiController::class, 'visitReparasiBody'])->name('reparasiBody');
 
-Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
+Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout')->middleware('auth');
 Route::post('/checkout', [OrderController::class, 'handleOrder']);
-Route::get('/checkout-neck', [OrderController::class, 'checkoutNeck']);
-Route::post('/checkout-neck', [OrderController::class, 'handleOrderNeck']);
+Route::get('/checkout-neck', [OrderController::class, 'checkoutNeck'])->middleware('auth');
+Route::post('/checkout-neck', [OrderController::class, 'handleOrderNeck'])->middleware('auth');
 Route::get('/checkout-body', [OrderController::class, 'checkoutBody']);
 Route::post('/checkout-body', [OrderController::class, 'handleOrderBody'])->name('checkout-body');
 Route::post('/handle-checkout', [OrderController::class, 'handleCheckout']);
