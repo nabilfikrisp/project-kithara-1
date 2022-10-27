@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\StatusLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,8 +19,10 @@ class HandleOrderController extends Controller
         if (Auth::user()->is_admin == 0) {
             abort(403);
         }
+        $statusLog = StatusLog::latest('created_at')->get()->unique('no_resi');
         return view('admin.adminOrder', [
-            'orders' => Order::all()
+            'orders' => Order::all(),
+            'statusLogs' => $statusLog
         ]);
     }
 
@@ -52,9 +55,12 @@ class HandleOrderController extends Controller
      */
     public function show(Order $order)
     {
-        // dd($order);
+        // dd($order->no_resi);
+        $statusLog = StatusLog::where('no_resi', $order->no_resi)->latest('created_at')->first();
+        // dd($statusLog->status);
         return view('admin.adminShowOrder', [
-            'order' => $order
+            'order' => $order,
+            'statusLog' => $statusLog
         ]);
     }
 
@@ -78,9 +84,14 @@ class HandleOrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        // dd($request, $order);
+        // dd($request['status'], $order);
         $data['status'] = $request['status'];
         Order::where('id', $order->id)->update($data);
+
+        StatusLog::create([
+            'no_resi' => $order->no_resi,
+            'status' => $request['status']
+        ]);
         
         return redirect('/admin/orders/' . $order->id)->with([
             'success' => 'order berhasil diupdate'

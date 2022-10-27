@@ -1,6 +1,12 @@
 @extends('admin.adminLayout')
 
 @section('head')
+    <style>
+        a {
+            text-decoration: none;
+            color: aliceblue;
+        }
+    </style>
 @endsection
 
 @section('content')

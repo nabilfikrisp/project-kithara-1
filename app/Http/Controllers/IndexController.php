@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\StatusLog;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -22,16 +23,23 @@ class IndexController extends Controller
     }
 
     public function handleCekResi(Request $request)
-    {
+    {   
+        // dd(Order::where('no_resi', $request['no_resi'])->count());
+        if(Order::where('no_resi', $request['no_resi'])->count() == 0)
+        {
+            return redirect('/cek-resi')->with([
+                'error' => 'Tidak ada order dengan nomor resi tersebut'
+            ]);
+        }
         $orders = Order::where('no_resi', $request['no_resi'])->get();
-
         // dd($request->request->get('no_resi'));
         // if ($request->request->get('no_resi') != $orders->no_resi) {
         //     abort(403);
         // }
-
+        $statusLogs = StatusLog::where('no_resi', $request['no_resi'])->get();
         return view('transaction.hasilCekResi', [
-            'orders' => $orders
+            'orders' => $orders,
+            'statusLogs' => $statusLogs
         ]);
     }
 }

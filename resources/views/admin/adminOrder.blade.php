@@ -75,7 +75,14 @@
                                     <td>{{ $order->services->service_name }}</td>
                                     <td>{{ $order->total_harga }}</td>
                                     <td>{{ $order->no_resi }}</td>
-                                    <td>{{ $order->status }}</td>
+                                    {{-- <td>{{ $order->status }}</td> --}}
+                                    <td>
+                                        @foreach ($statusLogs as $statusLog)
+                                             @if ($order->no_resi == $statusLog->no_resi)
+                                                 {{ $statusLog->status }}
+                                             @endif
+                                        @endforeach
+                                    </td>
                                     <td>
                                         <a href="/admin/orders/{{ $order->id }}">
                                             <button class="btn btn-warning" type="button">Show</button>

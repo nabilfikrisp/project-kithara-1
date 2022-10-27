@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Service;
 use App\Models\Order;
+use App\Models\StatusLog;
 
 class AdminController extends Controller
 {
@@ -78,7 +79,7 @@ class AdminController extends Controller
                 'services.estimasi_waktu',
             )
             ->get();
-        // dd($data);
+        
         return view('admin.adminOrder', [
             'data_user' => $data,
         ]);

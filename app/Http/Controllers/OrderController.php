@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Service;
+use App\Models\StatusLog;
 use Illuminate\Http\Request;
 use sirajcse\UniqueIdGenerator\UniqueIdGenerator as UniqueIdGenerator;
 
@@ -400,6 +401,11 @@ class OrderController extends Controller
                 'no_resi' => $no_resi
             ]);
         }
+
+        $statusLog = StatusLog::create([
+            'status' => 'Menunggu Konfirmasi Bukti Bayar',
+            'no_resi' => $no_resi
+        ]);
 
         return redirect('/')->with([
             'success' => 'Order Behasil, Silahkan Tunggu Konfirmasi',

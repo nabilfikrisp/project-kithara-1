@@ -62,10 +62,9 @@
                     <div class="card text-start card-resi w-50 mt-2 mb-2 p-2">
                         <p class="card-head-text">Progress Reparasi</p>
                         <ul>
-                            @foreach ($orders as $order)
+                            @foreach ($statusLogs as $statusLog)
                             <li>
-                                <p class="card-desc-text">{{ $order->services->service_name }}</p>
-                                <p class="card-desc-text"><span style="font-weight:bold">{{ $order->updated_at }}</span> : {{ $order->status}}</p>
+                                <p class="card-desc-text"><span style="font-weight:bold">{{  date('d-m-Y', strtotime($statusLog->created_at)) }}</span> : {{ $statusLog->status}}</p>
                             </li>
                             @endforeach
                         </ul>

@@ -106,7 +106,7 @@
                                         disabled>
                                 </div>
                                 <div class="row p-1" style="margin-left:1rem;margin-right:1rem; width:80%">
-                                    <label for="status" style="font-weight: ">Status (dapat diupdate)</label>
+
                                     {{-- <select id="status" name="status" class="form-select">
                                         <option value="Menunggu Konfirmasi Bukti Bayar"
                                             @if ($order->status == 'Menunggu Konfirmasi Bukti Bayar') selected @endif>Menunggu Konfirmasi Bukti
@@ -119,7 +119,11 @@
                                             @if ($order->status == 'Reparasi Gitar Selesai') selected @endif>Reparasi Gitar Selesai
                                         </option>
                                     </select> --}}
-                                    <input type="text" id="status" name="status" value="{{ $order->status }}">
+                                    {{-- <input type="text" id="status" name="status" value="{{ $order->status }}"> --}}
+                                    <div class="form-floating" style="margin:0; padding:0">
+                                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="status" style="height: 100px">{{ $statusLog->status }}</textarea>
+                                        <label for="status" style="font-weight: ">Status (dapat diupdate)</label>
+                                    </div>
                                 </div>
                                 <div class="row p-1 w-75" style="margin-left:1rem;margin-right:1rem">
                                     <label for="resiCreated">Waktu Order</label>
