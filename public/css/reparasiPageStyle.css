@@ -69,3 +69,8 @@ body {
         width: 50%;
     }
 }
+
+.own-action {
+    top: 90vh;
+    width: 100vw;
+}

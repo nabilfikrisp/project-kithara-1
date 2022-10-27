@@ -73,7 +73,7 @@
 
         <div class="row action-section mt-4">
             <div class="col-10">
-                <a href="{{ route('reparasi') }}">
+                <a href="{{ route('reparasiAll') }}">
                     <div class="p-2 box mb-3 rounded-3">
                         Reparasi Gitar
                     </div>

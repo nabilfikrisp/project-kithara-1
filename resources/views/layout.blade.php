@@ -29,7 +29,7 @@
                 </ul>
                 <ul class="col navbar-nav justify-content-center">
                     <li class="nav-item">
-                        <a class="nav-link nav-text" aria-current="page" href="{{ route('reparasi') }}">Reparasi Gitar</a>
+                        <a class="nav-link nav-text" aria-current="page" href="{{ route('reparasiAll') }}">Reparasi Gitar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-text" aria-current="page" href="{{ route('cekResi') }}">Cek Resi</a>

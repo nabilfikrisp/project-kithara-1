@@ -37,7 +37,11 @@
                             </tr>
                             <tr>
                                 <td class="card-desc-text">Tanggal Order</td>
-                                <td class="card-desc-text">: {{ $orders[0]->created_at }}</td>
+                                <td class="card-desc-text">: {{  date('d-m-Y', strtotime($orders[0]->created_at)) }}</td>
+                            </tr>
+                            <tr>
+                                <td class="card-desc-text">Estimasi Waktu</td>
+                                <td class="card-desc-text">: {{ $estimasiWaktu }} hari</td>
                             </tr>
                             <tr>
                                 <td class="card-desc-text">Merek Gitar</td>

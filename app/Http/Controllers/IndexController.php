@@ -36,10 +36,16 @@ class IndexController extends Controller
         // if ($request->request->get('no_resi') != $orders->no_resi) {
         //     abort(403);
         // }
+        $estimasiWaktu = 0;
+        foreach($orders as $order)
+        {
+            $estimasiWaktu += $order->services->estimasi_waktu;
+        }
         $statusLogs = StatusLog::where('no_resi', $request['no_resi'])->get();
         return view('transaction.hasilCekResi', [
             'orders' => $orders,
-            'statusLogs' => $statusLogs
+            'statusLogs' => $statusLogs,
+            'estimasiWaktu' => $estimasiWaktu
         ]);
     }
 }

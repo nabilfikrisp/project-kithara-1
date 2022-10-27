@@ -160,7 +160,6 @@ class OrderController extends Controller
         // dd($repHead, $repHead, $repTuningMachine);
 
         // dd($harga);
-
         return view('transaction.checkout', [
             'repHead' => session()->get('repHead'),
             'repNut' => session()->get('repNut'),
@@ -268,7 +267,6 @@ class OrderController extends Controller
 
     public function handleCheckout(Request $request)
     {
-
         // dd($request->file('buktiBayar')->getClientOriginalName());
         if ($request['merkGitar'] == null || $request['tipeGitar'] == null || $request['deliveryBy'] == null || $request['pickupBy'] == null) {
             return back()->with([
@@ -512,6 +510,7 @@ class OrderController extends Controller
             'status' => 'Menunggu Konfirmasi Bukti Bayar',
             'no_resi' => $no_resi
         ]);
+
         $orders = Order::where('no_resi', $no_resi)->get();
         return view('transaction.orderBerhasil', [
             'orders' => $orders
