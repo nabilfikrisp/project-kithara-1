@@ -106,8 +106,8 @@
                                         disabled>
                                 </div>
                                 <div class="row p-1" style="margin-left:1rem;margin-right:1rem; width:80%">
-                                    <label for="status" style="font-weight: ">Status</label>
-                                    <select id="status" name="status" class="form-select">
+                                    <label for="status" style="font-weight: ">Status (dapat diupdate)</label>
+                                    {{-- <select id="status" name="status" class="form-select">
                                         <option value="Menunggu Konfirmasi Bukti Bayar"
                                             @if ($order->status == 'Menunggu Konfirmasi Bukti Bayar') selected @endif>Menunggu Konfirmasi Bukti
                                             Bayar</option>
@@ -118,7 +118,8 @@
                                         <option value="Reparasi Gitar Selesai"
                                             @if ($order->status == 'Reparasi Gitar Selesai') selected @endif>Reparasi Gitar Selesai
                                         </option>
-                                    </select>
+                                    </select> --}}
+                                    <input type="text" id="status" name="status" value="{{ $order->status }}">
                                 </div>
                                 <div class="row p-1 w-75" style="margin-left:1rem;margin-right:1rem">
                                     <label for="resiCreated">Waktu Order</label>
