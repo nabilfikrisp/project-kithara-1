@@ -49,9 +49,9 @@ Route::get('/reparasi/gitar', [ReparasiController::class, 'visitReparasiAll'])->
 // Route::get('/checkout-body', [OrderController::class, 'checkoutBody']);
 // Route::post('/checkout-body', [OrderController::class, 'handleOrderBody'])->name('checkout-body');
 
-Route::get('/checkout', [OrderController::class, 'checkoutAll']);
-Route::post('/checkout', [OrderController::class, 'handleOrderAll'])->name('checkout-all');
-Route::post('/handle-checkout', [OrderController::class, 'handleCheckout']);
+Route::get('/checkout', [OrderController::class, 'checkoutAll'])->middleware('auth');
+Route::post('/checkout', [OrderController::class, 'handleOrderAll'])->name('checkout-all')->middleware('auth');
+Route::post('/handle-checkout', [OrderController::class, 'handleCheckout'])->middleware('auth');
 Route::get('/cek-resi', [IndexController::class, 'visitCekResi'])->name('cekResi');
 Route::post('/cek-resi', [IndexController::class, 'handleCekResi']);
 
