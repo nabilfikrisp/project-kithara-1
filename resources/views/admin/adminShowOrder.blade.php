@@ -14,9 +14,10 @@
                     </div>
                 </div>
             @endif
-            <h3 class="text-center">Edit Data Order [id = {{ $order->id }}]</h3>
+            <h3 class="text-center" style="inline-block">Edit Data Order [id = {{ $order->id }}]</h3>
             <div class="col d-flex justify-content-center">
                 <div class="card w-75 mt-3 mb-3" style="border:1px solid black">
+                    <span><a href="/admin/orders/"><button type="button" class="btn btn-primary m-2">Kembali</button></a></span>
                     <form action="{{ $order->id }}" method="post">
                         @method('put')
                         @csrf
@@ -121,7 +122,8 @@
                                     </select> --}}
                                     {{-- <input type="text" id="status" name="status" value="{{ $order->status }}"> --}}
                                     <div class="form-floating" style="margin:0; padding:0">
-                                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="status" style="height: 100px">{{ $statusLog->status }}</textarea>
+                                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="status"
+                                            style="height: 100px">{{ $statusLog->status }}</textarea>
                                         <label for="status" style="font-weight: ">Status (dapat diupdate)</label>
                                     </div>
                                 </div>
@@ -131,12 +133,13 @@
                                         value="{{ $order->created_at }}" disabled>
                                 </div>
                                 <div class="row p-1 w-75" style="margin-left:1rem;margin-right:1rem">
-                                    <label for="estimasiWaktu">Estimasi Waktu (Only Repair)</label>
-                                    <input type="text" id="estimasiWaktu" name="estimasiWaktu"
-                                        value="{{ $order->services->estimasi_waktu }}" disabled>
+                                    <label for="estimasiWaktu">Estimasi Waktu (dapat diupdate)</label>
+                                    <input type="date" id="estimasiWaktu" name="estimasiWaktu"
+                                        value="{{ $estimasiWaktu }}" required>
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="row d-flex justify-content-center mt-4 mb-4">
                             <div class="col justify-content-center text-center">
                                 <button type="submit" class="btn btn-primary m-2">Update Order Ini</button>

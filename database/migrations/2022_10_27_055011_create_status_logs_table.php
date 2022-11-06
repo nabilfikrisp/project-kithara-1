@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('status_logs', function (Blueprint $table) {
             $table->id();
             $table->string('status');
+            $table->date('estimasi')->nullable();
             $table->string('no_resi');
             $table->timestamps();
         });

@@ -57,10 +57,16 @@ class HandleOrderController extends Controller
     {
         // dd($order->no_resi);
         $statusLog = StatusLog::where('no_resi', $order->no_resi)->latest('created_at')->first();
+
+        $esmtimasiWaktu = "-";
+        if($statusLog->estimasi != null){
+            $esmtimasiWaktu = $statusLog->estimasi;
+        }
         // dd($statusLog->status);
         return view('admin.adminShowOrder', [
             'order' => $order,
-            'statusLog' => $statusLog
+            'statusLog' => $statusLog,
+            'estimasiWaktu' => $esmtimasiWaktu
         ]);
     }
 
@@ -87,12 +93,17 @@ class HandleOrderController extends Controller
         // dd($request['status'], $order);
         $data['status'] = $request['status'];
         Order::where('id', $order->id)->update($data);
-
         StatusLog::create([
             'no_resi' => $order->no_resi,
-            'status' => $request['status']
+            'status' => $request['status'],  
         ]);
         
+        $estimasi = [
+            'estimasi' => $request['estimasiWaktu']
+        ];
+
+        $statusLog = StatusLog::where('no_resi', $order->no_resi)->latest('created_at')->update($estimasi);
+
         return redirect('/admin/orders/' . $order->id)->with([
             'success' => 'order berhasil diupdate'
         ]);
