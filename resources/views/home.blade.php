@@ -94,8 +94,8 @@
         </div>
     </div>
 </div>
-<div class="row w-100 align-items-center justify-content-start mb-4">
-    <div class="col-1" style="margin-left:1.5rem">
+<div class="row w-100 d-flex align-items-center justify-content-end mb-4">
+    <div class="col-1 d-flex justify-content-end">
         <!-- <a href="https://wa.me/62(nomor hpnya)" target="_blank"> -->
         <img class="logo-wa" src="/image/logo/whatsapp.png" alt="Whatsapp">
         <!-- </a> -->
