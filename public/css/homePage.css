@@ -75,6 +75,12 @@
   color: white !important;
 }
 
+.logo-wa {
+  height: 70%;
+  width: 70%;
+  position: relative;
+}
+
 @media screen and (min-width: 900px) {
   .img-banner {
     width: 15vw;
@@ -89,5 +95,10 @@
 
   .container-sm {
     width: 900px !important;
+  }
+
+  .logo-wa {
+    height: 50%;
+    width: 50%;
   }
 }
