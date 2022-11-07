@@ -15,7 +15,8 @@
 <body>
     <nav class="navbar navbar-expand-lg pos-sticky" style="z-index: 9999; background-color:rgb(88, 59, 5); opacity:0.9">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -29,7 +30,8 @@
                 </ul>
                 <ul class="col navbar-nav justify-content-center">
                     <li class="nav-item">
-                        <a class="nav-link nav-text" aria-current="page" href="{{ route('reparasiAll') }}">Reparasi Gitar</a>
+                        <a class="nav-link nav-text" aria-current="page" href="{{ route('reparasiAll') }}">Reparasi
+                            Gitar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-text" aria-current="page" href="{{ route('cekResi') }}">Cek Resi</a>
@@ -37,22 +39,22 @@
                 </ul>
                 <ul class="col navbar-nav justify-content-end">
                     @guest
-                    <li class="nav-item">
-                        <a class="nav-link nav-text" aria-current="page" href="{{ route('login') }}">Login</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-text" aria-current="page" href="{{ route('login') }}">Login</a>
+                        </li>
                     @endauth
                     @if (Auth::user())
-                    @if (Auth::user()->is_admin == 1)
-                    <li class="nav-item">
-                        <a class="nav-link nav-text" aria-current="page" href="/admin/orders/">Admin</a>
-                    </li>
-                    @endif
-                    <li class="nav-item">
-                        <a class="nav-link nav-text" aria-current="page" href="{{ route('profile') }}">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-text" aria-current="page" href="{{ route('logout') }}">Logout</a>
-                    </li>
+                        @if (Auth::user()->is_admin == 1)
+                            <li class="nav-item">
+                                <a class="nav-link nav-text" aria-current="page" href="/admin/orders/">Admin</a>
+                            </li>
+                        @endif
+                        <li class="nav-item">
+                            <a class="nav-link nav-text" aria-current="page" href="{{ route('profile') }}">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-text" aria-current="page" href="{{ route('logout') }}">Logout</a>
+                        </li>
                     @endif
                 </ul>
             </div>
@@ -61,7 +63,14 @@
 
     @yield('content')
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+    <div class="fixed-contact" style="display: inline-block; position: fixed; bottom: 5vh; right: 5vw">
+        <a href="https://wa.me/628892701501" target="_blank">
+            <img src="/image/logo/whatsapp.png" alt="Whatsapp" style="height: 7vh;">
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
 </body>
 
