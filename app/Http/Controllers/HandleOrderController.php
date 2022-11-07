@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\StatusLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class HandleOrderController extends Controller
 {
@@ -59,7 +60,7 @@ class HandleOrderController extends Controller
         $statusLog = StatusLog::where('no_resi', $order->no_resi)->latest('created_at')->first();
 
         $esmtimasiWaktu = "-";
-        if($statusLog->estimasi != null){
+        if ($statusLog->estimasi != null) {
             $esmtimasiWaktu = $statusLog->estimasi;
         }
         // dd($statusLog->status);
@@ -95,9 +96,9 @@ class HandleOrderController extends Controller
         Order::where('id', $order->id)->update($data);
         StatusLog::create([
             'no_resi' => $order->no_resi,
-            'status' => $request['status'],  
+            'status' => $request['status'],
         ]);
-        
+
         $estimasi = [
             'estimasi' => $request['estimasiWaktu']
         ];
@@ -118,6 +119,22 @@ class HandleOrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $orders = Order::where('no_resi', $order->no_resi)->get();
+        // dd($orders);
+        $statusLog = StatusLog::where('no_resi', $order->no_resi)->get();
+        // dd($statusLog);
+        foreach ($orders as $item) {
+            if ($item->bukti_bayar) {
+                Storage::delete($item->bukti_bayar);
+            }
+            Order::destroy($item->id);
+        }
+
+        foreach ($statusLog as $item) {
+            StatusLog::destroy($item->id);
+        }
+
+        return redirect('/admin/orders')->with('success', 'Order Berhasil dihapus!!');
+        // if($order->bukti_bayar)
     }
 }

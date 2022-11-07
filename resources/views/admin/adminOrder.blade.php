@@ -52,6 +52,14 @@
 @section('content')
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
+            @if (session()->has('success'))
+                <div class="container col-6">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            @endif
             <h3 class="text-center">Data Order</h3>
             <div class="col-10 d-flex justify-content-center mt-2">
                 <div class="table-responsive" style="width: 70vw">
@@ -78,15 +86,20 @@
                                     {{-- <td>{{ $order->status }}</td> --}}
                                     <td>
                                         @foreach ($statusLogs as $statusLog)
-                                             @if ($order->no_resi == $statusLog->no_resi)
-                                                 {{ $statusLog->status }}
-                                             @endif
+                                            @if ($order->no_resi == $statusLog->no_resi)
+                                                {{ $statusLog->status }}
+                                            @endif
                                         @endforeach
                                     </td>
                                     <td>
-                                        <a href="/admin/orders/{{ $order->id }}">
+                                        <a href="/admin/orders/{{ $order->id }}" class="d-inline-block">
                                             <button class="btn btn-warning" type="button">Show</button>
                                         </a>
+                                        <form action="/admin/orders/{{ $order->id }}" method="POST" class="d-inline-block">
+                                            @method('delete')
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger m-2" onclick="return alert('Anda yakin menghapus order ini?')">Delete Order Ini</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

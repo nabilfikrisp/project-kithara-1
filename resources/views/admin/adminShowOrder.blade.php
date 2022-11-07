@@ -143,7 +143,7 @@
                         <div class="row d-flex justify-content-center mt-4 mb-4">
                             <div class="col justify-content-center text-center">
                                 <button type="submit" class="btn btn-primary m-2">Update Order Ini</button>
-                                <button type="button" class="btn btn-danger m-2">Delete Order Ini</button>
+                                
                             </div>
                         </div>
                     </form>
