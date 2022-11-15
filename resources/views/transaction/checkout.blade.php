@@ -87,7 +87,7 @@
                                 <div class="row p-1 d-block" style="margin-left:1rem;margin-right:1rem">
                                     <label for="harga">harga</label>
                                     <!-- <span id="hargaTotal" hidden></span>
-                                    <span id="hargaTotal2">0</span> -->
+                                        <span id="hargaTotal2">0</span> -->
                                     <input type="text" id="harga" name="harga" value="{{ $biaya }}"
                                         readonly>
                                 </div>
@@ -109,17 +109,9 @@
                                         <p>Bayar sendiri ke toko ya!</p>
                                     </div>
                                 </div>
-                                <input type="hidden" name="repHead" value="{{ session()->get('repHead') }}">
-                                <input type="hidden" name="repNut" value="{{ session()->get('repNut') }}">
-                                <input type="hidden" name="repTuningMachine"
-                                    value="{{ session()->get('repTuningMachine') }}">
-                                <input type="hidden" name="repNeck" value="{{ session()->get('repNeck') }}">
-                                <input type="hidden" name="repFret" value="{{ session()->get('repFret') }}">
-                                <input type="hidden" name="repPickup" value="{{ session()->get('repPickup') }}">
-                                <input type="hidden" name="repBody" value="{{ session()->get('repBody') }}">
-                                <input type="hidden" name="repSaddle" value="{{ session()->get('repSaddle') }}">
-                                <input type="hidden" name="repBridge" value="{{ session()->get('repBridge') }}">
-                                <input type="hidden" name="repPin" value="{{ session()->get('repPin') }}">
+                                @foreach ($servicesId as $id)
+                                    <input type="hidden" name="servicesId[]" value="{{ $id }}">
+                                @endforeach
                                 <div class="row mt-3 justify-content-center">
                                     <button type="button" class="btn btn-primary m-2" style="width:fit-content"
                                         onclick="return backToOrder()">Back</button>

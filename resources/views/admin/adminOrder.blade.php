@@ -98,7 +98,7 @@
                                         <form action="/admin/orders/{{ $order->id }}" method="POST" class="d-inline-block">
                                             @method('delete')
                                             @csrf
-                                            <button type="submit" class="btn btn-danger m-2" onclick="return alert('Anda yakin menghapus order ini?')">Delete Order Ini</button>
+                                            <button type="submit" class="btn btn-danger m-2" onclick="return confirm('Anda yakin menghapus order ini?')">Delete Order Ini</button>
                                         </form>
                                     </td>
                                 </tr>

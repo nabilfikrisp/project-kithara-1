@@ -56,6 +56,28 @@ class AdminController extends Controller
         ]);
     }
 
+    public function addService(){
+        if (Auth::user()->is_admin == 0) {
+            abort(403);
+        }
+        
+        return view('admin.adminAddService', [
+        ]);
+    }
+
+    public function handleAddService(Request $request){
+        $validatedData = $request->validate([
+            'part' => 'required',
+            'service_name' => 'required',
+            'estimasi_waktu' => 'required|numeric',
+            'biaya' => 'required|numeric',
+        ]);
+
+        $service = Service::create($validatedData);
+
+        return redirect('/admin/service')->with('success', 'Tambah Service Berhasil!');
+    }
+    
     public function visitOrder()
     {
         if (Auth::user()->is_admin == 0) {

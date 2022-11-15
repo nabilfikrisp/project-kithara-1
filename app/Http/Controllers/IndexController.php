@@ -11,10 +11,7 @@ class IndexController extends Controller
 {
     public function visitLanding()
     {
-        $products = Product::all();
-        return view('home', [
-            'products' => $products,
-        ]);
+        return view('home');
     }
 
     public function visitCekResi()
