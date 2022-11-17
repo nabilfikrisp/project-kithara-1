@@ -62,6 +62,7 @@ Route::get('/admin/service', [AdminController::class, 'visitService'])->name('ad
 Route::get('/admin/service/add', [AdminController::class, 'addService'])->middleware('auth');
 Route::post('/admin/service/add', [AdminController::class, 'handleAddService'])->middleware('auth');
 // Route::get('/admin/service/{id}', [AdminController::class, 'showService'])->middleware('auth');
+Route::post('/admin/service-update', [AdminController::class, 'updateService'])->middleware('auth')->name('updateService');
 Route::get('/admin/service/{id}', function ($id) {
   $service = Service::where('id', $id)->first();
   return view('admin.adminShowService', [
@@ -74,7 +75,7 @@ Route::post('/admin/service/{id}', function ($id) {
   return redirect('/admin/service')->with('success', 'Service Berhasil dihapus!!');
 })->middleware('auth');
 
-Route::post('/admin/service/update', [AdminController::class, 'updateService'])->middleware('auth');
+
 // Route::get('/admin/order', [AdminController::class, 'visitOrder'])->name('adminOrder')->middleware('auth');
 
 // Route::get('/admin/order/edit', [ManageOrderController::class, 'index'])->name('adminEditOrder')->middleware('auth');

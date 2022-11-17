@@ -45,6 +45,8 @@ class AdminController extends Controller
 
     public function updateService(Request $request){
         $data = [
+            'part' => $request['part'],
+            'service_name' => $request['service_name'],
             'estimasi_waktu' => $request['estimasi_waktu'],
             'biaya' => $request['harga']
         ];
