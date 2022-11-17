@@ -82,13 +82,12 @@
                                         onclick="return nextToPayment()">Next</button>
                                 </div>
                             </div>
-                            <div class="col mt-2 mb-2" id="payment" hidden>
+                            <div class="col mt-2 mb-2" id="payment" hidden style="min-width: 400px">
                                 <h4 class="text-center">Detil Pembayaran</h4>
                                 <div class="row p-1 d-block" style="margin-left:1rem;margin-right:1rem">
-                                    <label for="harga">harga</label>
-                                    <!-- <span id="hargaTotal" hidden></span>
-                                        <span id="hargaTotal2">0</span> -->
-                                    <input type="text" id="harga" name="harga" value="{{ $biaya }}"
+                                    <label for="harga">Harga</label>
+                                    <h3>Rp. {{ number_format($biaya, 2, ',', '.') }}</h3>
+                                    <input type="hidden" id="harga" name="harga" value="{{ $biaya }}"
                                         readonly>
                                 </div>
                                 <div class="row p-1 d-block" style="margin-left:1rem;margin-right:1rem">

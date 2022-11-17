@@ -81,7 +81,7 @@
                                     <td scope="row">{{ $loop->iteration }}</td>
                                     <td>{{ $order->buyers->name }}</td>
                                     <td>{{ $order->services->service_name }}</td>
-                                    <td>{{ $order->total_harga }}</td>
+                                    <td>Rp. {{ number_format($order->total_harga, 2, ',', '.') }}</td>
                                     <td>{{ $order->no_resi }}</td>
                                     {{-- <td>{{ $order->status }}</td> --}}
                                     <td>

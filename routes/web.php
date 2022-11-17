@@ -35,6 +35,7 @@ Route::get('/register', [RegisterController::class, 'visitRegister'])->name('reg
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/profile', [LoginController::class, 'visitProfile'])->name('profile');
+Route::get('/profile/my-order', [LoginController::class, 'visitMyOrder']);
 
 Route::get('/reparasi', [ReparasiController::class, 'visitReparasi'])->name('reparasi');
 Route::get('/reparasi/head', [ReparasiController::class, 'visitReparasiHead'])->name('reparasiHead');

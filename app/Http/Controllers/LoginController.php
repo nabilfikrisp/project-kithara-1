@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\StatusLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,5 +45,13 @@ class LoginController extends Controller
     public function visitProfile()
     {
         return view('profile');
+    }
+
+    public function visitMyOrder()
+    {
+        $orders = Order::where('user_id', auth()->user()->id)->groupBy('no_resi')->get();
+        return view('myOrder', [
+            'orders' => $orders,
+        ]);
     }
 }

@@ -42,7 +42,7 @@
                                 <td>{{ $datum->part }}</td>
                                 <td>{{ $datum->service_name }}</td>
                                 <td>{{ $datum->estimasi_waktu }} Hari</td>
-                                <td>Rp. {{ $datum->biaya }}</td>
+                                <td>Rp. {{ number_format($datum->biaya, 2, ',', '.') }}</td>
                                 <td class="text-center">
                                     <button class="btn btn-warning" type="button"><a
                                             href="/admin/service/{{ $datum->id }}">Edit</a></button>
