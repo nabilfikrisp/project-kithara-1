@@ -20,8 +20,10 @@
                 </a>
             </div>
             <div class="text-center mt-4">
-                <button class="btn btn-accent rounded-pill" type="button"><span class="login-text">Edit
-                        Profile</span></button>
+                <a href="/profile/edit">
+                    <button class="btn btn-accent rounded-pill" type="button"><span class="login-text">Edit
+                            Profile</span></button>
+                </a>
             </div>
         </div>
     </div>
