@@ -44,7 +44,7 @@ Route::get('/reparasi/head', [ReparasiController::class, 'visitReparasiHead'])->
 Route::get('/reparasi/neck', [ReparasiController::class, 'visitReparasiNeck'])->name('reparasiNeck');
 Route::get('/reparasi/body', [ReparasiController::class, 'visitReparasiBody'])->name('reparasiBody');
 Route::get('/reparasi/gitar', [ReparasiController::class, 'visitReparasiAll'])->name('reparasiAll');
-
+// asdadasdasdasdas
 // Route::get('/checkout-head', [OrderController::class, 'checkout'])->name('checkout')->middleware('auth');
 // Route::post('/checkout-head', [OrderController::class, 'handleOrder']);
 // Route::get('/checkout-neck', [OrderController::class, 'checkoutNeck'])->middleware('auth');
