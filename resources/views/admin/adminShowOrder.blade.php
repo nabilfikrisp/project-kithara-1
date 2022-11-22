@@ -17,7 +17,8 @@
             <h3 class="text-center" style="inline-block">Edit Data Order [id = {{ $order->id }}]</h3>
             <div class="col d-flex justify-content-center">
                 <div class="card w-75 mt-3 mb-3" style="border:1px solid black">
-                    <span><a href="/admin/orders/"><button type="button" class="btn btn-primary m-2">Kembali</button></a></span>
+                    <span><a href="/admin/orders/"><button type="button"
+                                class="btn btn-primary m-2">Kembali</button></a></span>
                     <form action="{{ $order->id }}" method="post">
                         @method('put')
                         @csrf
@@ -46,16 +47,32 @@
                             </div>
                             <div class="col-4 justify-content-center m-0">
                                 <h4 class="text-center">Info Order</h4>
+
+                                @if ($order->services)
+                                    <div class="row p-1 w-75" style="margin-left:1rem;margin-right:1rem">
+                                        <label for="part">Part</label>
+                                        <input type="text" id="part" name="part"
+                                            value="{{ $order->services->part }}" disabled>
+                                    </div>
+                                    <div class="row p-1 w-75" style="margin-left:1rem;margin-right:1rem">
+                                        <label for="service">Service</label>
+
+                                        <input type="text" id="service" name="service"
+                                            value="{{ $order->services->service_name }}" disabled>
+                                    </div>
+                                @else
                                 <div class="row p-1 w-75" style="margin-left:1rem;margin-right:1rem">
                                     <label for="part">Part</label>
                                     <input type="text" id="part" name="part"
-                                        value="{{ $order->services->part }}" disabled>
+                                        value="service telah dihapus" disabled>
                                 </div>
                                 <div class="row p-1 w-75" style="margin-left:1rem;margin-right:1rem">
                                     <label for="service">Service</label>
+
                                     <input type="text" id="service" name="service"
-                                        value="{{ $order->services->service_name }}" disabled>
+                                        value="service telah dihapus" disabled>
                                 </div>
+                                @endif
                                 <div class="row p-1 w-75" style="margin-left:1rem;margin-right:1rem">
                                     <label for="merkGitar">Merk Gitar</label>
                                     <input type="text" id="merkGitar" name="merkGitar" value="{{ $order->merk_gitar }}"
@@ -139,11 +156,11 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row d-flex justify-content-center mt-4 mb-4">
                             <div class="col justify-content-center text-center">
                                 <button type="submit" class="btn btn-primary m-2">Update Order Ini</button>
-                                
+
                             </div>
                         </div>
                     </form>

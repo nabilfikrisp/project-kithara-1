@@ -80,7 +80,12 @@
                                 <tr class="">
                                     <td scope="row">{{ $loop->iteration }}</td>
                                     <td>{{ $order->buyers->name }}</td>
-                                    <td>{{ $order->services->service_name }}</td>
+                                    @if ($order->services)
+                                        <td>{{ $order->services->service_name }}</td>
+                                    @else
+                                        <td>service telah dihapus</td>
+                                    @endif
+
                                     <td>Rp. {{ number_format($order->total_harga, 2, ',', '.') }}</td>
                                     <td>{{ $order->no_resi }}</td>
                                     {{-- <td>{{ $order->status }}</td> --}}
@@ -95,10 +100,13 @@
                                         <a href="/admin/orders/{{ $order->id }}" class="d-inline-block">
                                             <button class="btn btn-warning" type="button">Show</button>
                                         </a>
-                                        <form action="/admin/orders/{{ $order->id }}" method="POST" class="d-inline-block">
+                                        <form action="/admin/orders/{{ $order->id }}" method="POST"
+                                            class="d-inline-block">
                                             @method('delete')
                                             @csrf
-                                            <button type="submit" class="btn btn-danger m-2" onclick="return confirm('Anda yakin menghapus order ini?')">Delete Order Ini</button>
+                                            <button type="submit" class="btn btn-danger m-2"
+                                                onclick="return confirm('Anda yakin menghapus order ini?')">Delete Order
+                                                Ini</button>
                                         </form>
                                     </td>
                                 </tr>
