@@ -10,6 +10,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReparasiController;
 use App\Http\Controllers\HandleOrderController;
 use App\Http\Controllers\ManageOrderController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,7 @@ Route::get('/reparasi/head', [ReparasiController::class, 'visitReparasiHead'])->
 Route::get('/reparasi/neck', [ReparasiController::class, 'visitReparasiNeck'])->name('reparasiNeck');
 Route::get('/reparasi/body', [ReparasiController::class, 'visitReparasiBody'])->name('reparasiBody');
 Route::get('/reparasi/gitar', [ReparasiController::class, 'visitReparasiAll'])->name('reparasiAll');
-// asdadasdasdasdas
+// 
 // Route::get('/checkout-head', [OrderController::class, 'checkout'])->name('checkout')->middleware('auth');
 // Route::post('/checkout-head', [OrderController::class, 'handleOrder']);
 // Route::get('/checkout-neck', [OrderController::class, 'checkoutNeck'])->middleware('auth');
@@ -76,6 +77,12 @@ Route::post('/admin/service/{id}', function ($id) {
   Service::destroy($service->id);
   return redirect('/admin/service')->with('success', 'Service Berhasil dihapus!!');
 })->middleware('auth');
+
+Route::post('/admin/user/delete/{id}', function ($id) {
+  $user = User::where('id', $id)->first();
+  User::destroy($user->id);
+  return redirect('/admin/user')->with('success', 'User Berhasil dihapus!!');
+})->middleware('auth')->name('delete.user');
 
 
 // Route::get('/admin/order', [AdminController::class, 'visitOrder'])->name('adminOrder')->middleware('auth');
